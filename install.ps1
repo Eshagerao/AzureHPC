@@ -1,1 +1,1 @@
-﻿ls
+﻿sudo user001 group install "Development Tools" 
