@@ -181,9 +181,9 @@
     "storageAccountIndexWidth": "[length(string(sub(add(variables('cnStorageAccountNumber'), variables('cnStorageAccountStartIndex')), 1)))]",
     "hnStorageAccountName": "[concat(parameters('storageAccountNamePrefix'), padLeft(string(parameters('storageAccountStartIndex')), variables('storageAccountIndexWidth'), '0'))]",
     "hnStorageAccountId": "[resourceId('Microsoft.Storage/storageAccounts',variables('hnStorageAccountName'))]",
-    "addressPrefix": "10.1.0.0/16",
+    "addressPrefix": "10.0.0.0/16",
     "subnet1Name": "Subnet-1",
-    "subnet1Prefix": "10.1.0.0/22",
+    "subnet1Prefix": "10.0.0.0/22",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
     "publicIPAddressType": "Dynamic",
@@ -303,7 +303,7 @@
             "name": "IPConfig",
             "properties": {
               "privateIPAllocationMethod": "Static",
-              "privateIPAddress": "10.1.0.4",
+              "privateIPAddress": "10.0.0.4",
               "publicIPAddress": {
                 "id": "[reference('setupClusterPublicIP').outputs.resourceId.value]"
               },
@@ -367,10 +367,22 @@
             "value": "[parameters('clusterName')]"
           },
           "vmSize": {
-            "value": "[parameters('headNodeVMSize')]"
+            "value": "[parameters('computeNodeVMSize')]"
           },
           "storageAccountName": {
             "value": "[variables('hnStorageAccountName')]"
+          },
+          "imgPublisher": {
+            "value": "[parameters('computeNodeImagePublisher')]"
+          },
+          "imgOffer": {
+            "value": "[parameters('computeNodeImageOffer')]"
+          },
+          "imgSku": {
+            "value": "[parameters('computeNodeImageSku')]"
+          },
+          "imgVersion": {
+            "value": "latest"
           },
           "nicName": {
             "value": "[variables('nicNameHN')]"
@@ -427,55 +439,11 @@
           },
           "DNSServerAddress": {
             "value": [
-              "10.1.0.4",
+              "10.0.0.4",
               "8.8.8.8"
             ]
           }
         }
-      }
-    },
-
-     {
-      "apiVersion": "2015-06-15",
-      "name": "myNSG",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "securityRules": [
-          {
-            "name": "http",
-            "properties": {
-              "description": "Allow HTTP",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "ssh",
-            "properties": {
-              "description": "Allow SSH",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "22",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 110,
-              "direction": "Inbound"
-            }
-          }
-        ],
-      "subnets": [
-        {
-          "id": "[variables('subnetRef')]"
-        }
-        ]
       }
     },
     {
