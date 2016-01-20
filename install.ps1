@@ -1,1 +1,1 @@
-﻿sudo yum group install "Development Tools" 
+﻿sudo yum groupinstall "Development Tools" 
