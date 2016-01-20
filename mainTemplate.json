@@ -303,7 +303,7 @@
             "name": "IPConfig",
             "properties": {
               "privateIPAllocationMethod": "Static",
-              "privateIPAddress": "10.0.0.4",
+              "privateIPAddress": "10.1.0.4",
               "publicIPAddress": {
                 "id": "[reference('setupClusterPublicIP').outputs.resourceId.value]"
               },
@@ -427,7 +427,7 @@
           },
           "DNSServerAddress": {
             "value": [
-              "10.0.0.4",
+              "10.1.0.4",
               "8.8.8.8"
             ]
           }
