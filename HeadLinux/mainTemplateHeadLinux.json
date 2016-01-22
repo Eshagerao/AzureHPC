@@ -363,6 +363,9 @@
           "location": {
             "value": "[parameters('location')]"
           },
+          "nicName": {
+            "value": "[variables('nicNameHN')]"
+          },
           "vmName": {
             "value": "[parameters('clusterName')]"
           },
@@ -372,8 +375,17 @@
           "storageAccountName": {
             "value": "[variables('hnStorageAccountName')]"
           },
-          "nicName": {
-            "value": "[variables('nicNameHN')]"
+          "imgPublisher": {
+            "value": "[parameters('computeNodeImagePublisher')]"
+          },
+          "imgOffer": {
+            "value": "[parameters('computeNodeImageOffer')]"
+          },
+          "imgSku": {
+            "value": "[parameters('computeNodeImageSku')]"
+          },
+          "imgVersion": {
+            "value": "latest"
           },
           "adminUsername": {
             "value": "[parameters('adminUsername')]"
