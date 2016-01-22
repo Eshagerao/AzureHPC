@@ -169,7 +169,7 @@
       "type": "string",
       "metadata": {
         "description": "Base URL for Marketplace",
-        "artifactsBaseUrl": ""
+        "artifactsBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/HeadLinux"
       }
     }
   },
