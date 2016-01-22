@@ -350,6 +350,10 @@
         "[concat('Microsoft.Storage/storageAccounts/', variables('hnStorageAccountName'))]",
         "Microsoft.Resources/deployments/createAvailabilitySets"
       ],
+       "copy": {
+        "name": "CN",
+        "count": "[variables('computeNodeNumber')]"
+      },
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -399,8 +403,14 @@
           "availabilitySetName": {
             "value": "[concat(variables('availabilitySetNamePrefix'), '000')]"
           },
+          "customData": {
+            "value": "[variables('computeNodeCustomData')]"
+          },
           "scriptBaseUri": {
             "value": "[parameters('artifactsBaseUrl')]"
+          },
+          "clusterName": {
+            "value": "[parameters('clusterName')]"
           },
           "privateDomainName": {
             "value": "[parameters('privateDomainName')]"
