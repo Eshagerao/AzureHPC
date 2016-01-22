@@ -353,7 +353,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('artifactsBaseUrl'), '/headnode-rdma-', variables('hnRDMAState'), '.json')]",
+          "uri": "[variables('computeNodeTemplateUrl')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
