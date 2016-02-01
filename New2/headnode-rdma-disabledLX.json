@@ -38,6 +38,30 @@
         "description": "The network interface name"
       }
     },
+    "imgPublisher": {
+      "type": "string",
+      "metadata": {
+        "description": "The publisher of the VM image"
+      }
+    },
+    "imgOffer": {
+      "type": "string",
+      "metadata": {
+        "description": "The offer of the VM image"
+      }
+    },
+    "imgSku": {
+      "type": "string",
+      "metadata": {
+        "description": "The sku of the VM image"
+      }
+    },
+    "imgVersion": {
+      "type": "string",
+      "metadata": {
+        "description": "The version of the VM image"
+      }
+    },
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -56,6 +80,12 @@
         "description": "The availability set name"
       }
     },
+    "customData": {
+      "type": "string",
+      "metadata": {
+        "description": "The custom data in base64 format"
+      }
+    },
     "scriptBaseUri": {
       "type": "string",
       "metadata": {
@@ -66,6 +96,12 @@
       "type": "string",
       "metadata": {
         "description": "The fully qualified domain name (FQDN) for the private domain forest which will be created by this template, for example 'hpc.local'."
+      }
+    },
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The HPC cluster name"
       }
     }
   },
@@ -82,14 +118,18 @@
         "osProfile": {
           "computerName": "[parameters('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+          "adminPassword": "[parameters('adminPassword')]",
+          "customData": "[parameters('customData')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": "false"
+          }
         },
         "storageProfile": {
           "imageReference": {
-            "publisher": "MicrosoftWindowsServerHPCPack",
-            "offer": "WindowsServerHPCPack",
-            "sku": "2012R2",
-            "version": "latest"
+            "publisher": "[parameters('imgPublisher')]",
+            "offer": "[parameters('imgOffer')]",
+            "sku": "[parameters('imgSku')]",
+            "version": "[parameters('imgVersion')]"
           },
           "osDisk": {
             "name": "osdisk",
