@@ -106,6 +106,9 @@
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
       "properties": {
+        "availabilitySet": {
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]"
+        },
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"
         },
@@ -153,8 +156,23 @@
             }
           ]
         }
-      }
-   
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "name": "[concat(parameters('vmName'),'/installRDMADriver')]",
+          "apiVersion": "[parameters('apiVersion')]",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.HpcCompute",
+            "type": "HpcVmDrivers",
+            "typeHandlerVersion": "1.1"
+          }
+        }
+      ]
     }
   ]
 }
