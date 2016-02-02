@@ -114,7 +114,7 @@
       "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "Optional URL of a public available PowerShell script you want to run on the compute nodes after they are configured. You can also specify arguments for the script, for example 'http://www.consto.com/mypostscript.ps1 -Arg1 arg1 -Arg2 arg2'."
+        "description": "Not used currently."
       }    
     }
   },
@@ -160,7 +160,10 @@
           "computerName": "[parameters('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
-          "customData": "[parameters('customData')]"
+          "customData": "[parameters('customData')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": "false"
+          }
         },
         "storageProfile": {
           "imageReference": {
@@ -185,41 +188,7 @@
             }
           ]
         }
-      },
-      "resources": [
-        {
-          "type": "Microsoft.Compute/virtualMachines/extensions",
-          "name": "[concat(parameters('vmName'), '/configureComputeNode')]",
-          "apiVersion": "[parameters('apiVersion')]",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-          ],
-          "properties": {
-            "publisher": "Microsoft.Powershell",
-            "type": "DSC",
-            "typeHandlerVersion": "2.13",
-            "settings": {
-              "modulesUrl": "[concat(parameters('scriptBaseUri'),'/ConfigComputeNode.ps1.zip')]",
-              "configurationFunction": "ConfigComputeNode.ps1\\ConfigComputeNode",
-              "wmfVersion": "4.0",
-              "Properties": {
-                "DomainName": "[parameters('privateDomainName')]",
-                "AdminCreds": {
-                  "UserName": "[parameters('adminUsername')]",
-                  "Password": "PrivateSettingsRef:AdminPassword"
-                },
-                "PostConfigScript": "[parameters('computeNodePostConfigScript')]"
-              }
-            },
-            "protectedSettings": {
-              "Items": {
-                "AdminPassword": "[parameters('adminPassword')]"
-              }
-            }
-          }
-        }
-      ]
+      }
     }
   ]
 }
