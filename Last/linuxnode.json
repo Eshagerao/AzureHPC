@@ -32,6 +32,12 @@
         "description": "The VM name"
       }
     },
+    "vmNumber": {
+      "type": "string",
+      "metadata": {
+        "description": "Number of VM"
+      }
+    },
     "vmSize": {
       "type": "string",
       "metadata": {
@@ -115,7 +121,7 @@
       "defaultValue": "",
       "metadata": {
         "description": "Not used currently."
-      }    
+      }
     }
   },
   "variables":{
@@ -132,7 +138,8 @@
           {
             "name": "IPConfig",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[concat('10.0.0.',parameters('vmNumber'))]",
               "subnet": {
                 "id": "[parameters('subnetId')]"
               }
