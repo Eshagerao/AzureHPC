@@ -211,7 +211,7 @@
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.4",
         "settings": {
-          "commandToExecute": "echo 'passBBDD001' | sudo -S mkdir prueba222"
+          "commandToExecute": "curl https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/scriptCompute.sh | sh"
         }
       }
     }
