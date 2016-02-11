@@ -118,13 +118,13 @@
     },
     "computeNodePostConfigScript": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/scriptCompute.sh",
+      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts",
       "metadata": {
         "description": "Not used currently."
       }
     }
   },
-  "variables":{
+  "variables": {
     "osDiskUri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/', toLower(parameters('vmName')), '-os', uniqueString(parameters('subnetId')), '.vhd')]"
   },
   "resources": [
@@ -194,6 +194,27 @@
               "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('nicName'))]"
             }
           ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(parameters('clusterName'),'/configureComputeNode')]",
+      "apiVersion": "[variables('apiVersion')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]",
+        "[concat('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.4",
+        "settings": {
+          "fileUris": [
+            "[concat(parameters('computeNodePostConfigScript'), '/scriptCompute.sh')]"
+          ],
+          "commandToExecute": "echo 'passBBDD001' | sudo -S mkdir prueba222"
         }
       }
     }
