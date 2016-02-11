@@ -198,22 +198,25 @@
       }
     },
     {
+
       "apiVersion": "[parameters('apiVersion')]",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('clusterName'),'/configureComputeNode')]",
+      "name": "[concat(parameters('vmName'),'/configureComputeNode')]",
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]",
         "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
       ],
       "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.4",
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "CustomScriptForLinux",
+        "typeHandlerVersion": "1.2",
         "settings": {
-          "commandToExecute": "curl https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/scriptCompute.sh | sh"
+          "fileUris": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/scriptCompute.sh",
+          "commandToExecute": "bash scriptCompute.sh"
         }
       }
     }
+    
   ]
 }
