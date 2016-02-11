@@ -204,7 +204,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]",
-        "[concat('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
       ],
       "properties": {
         "publisher": "Microsoft.Compute",
