@@ -211,9 +211,6 @@
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.4",
         "settings": {
-          "fileUris": [
-            "[concat(parameters('computeNodePostConfigScript'), '/scriptCompute.sh')]"
-          ],
           "commandToExecute": "echo 'passBBDD001' | sudo -S mkdir prueba222"
         }
       }
