@@ -128,15 +128,8 @@
     "osDiskUri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/', toLower(parameters('vmName')), '-os', uniqueString(parameters('subnetId')), '.vhd')]",
     "templateBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts",
     "osSettings": {
-    "imageReference": {
-        "publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "14.04.2-LTS",
-        "version": "latest"
-        },
         "scripts": [
-            "[concat(variables('templateBaseUrl'), '/scriptCompute.sh')]",
-            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
+            "[concat(variables('templateBaseUrl'), '/scriptCompute.sh')]"
         ]
     }
   },
