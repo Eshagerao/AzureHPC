@@ -198,9 +198,9 @@
       }
     },
     {
+      "apiVersion": "[parameters('apiVersion')]",
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(parameters('clusterName'),'/configureComputeNode')]",
-      "apiVersion": "[variables('apiVersion')]",
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]",
