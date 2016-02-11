@@ -118,7 +118,7 @@
     },
     "computeNodePostConfigScript": {
       "type": "string",
-      "defaultValue": "",
+      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/scriptCompute.sh",
       "metadata": {
         "description": "Not used currently."
       }
