@@ -10,3 +10,5 @@ do
 echo "IaaSLnxCN-00$i" >> hosts.txt
 done
 
+mkdir ~/.ssh
+ssh-keygen -t rsa -N "" -f ~/.ssh/my.key
