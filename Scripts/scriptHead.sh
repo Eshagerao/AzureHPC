@@ -14,6 +14,7 @@ done
 mkdir /home/userBBDD001/.ssh
 ssh-keygen -t rsa -N "" -f /home/userBBDD001/.ssh/my.key
 
+yum clean all
 yum install nfs-utils nfs-utils-lib -y
 service rpcbind start
 service nfs start
