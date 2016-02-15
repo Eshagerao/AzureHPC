@@ -12,3 +12,8 @@ done
 
 mkdir ~/.ssh
 ssh-keygen -t rsa -N "" -f ~/.ssh/my.key
+
+
+yum install nfs-utils nfs-utils-lib -y
+mkdir -p /mnt/nfs/home
+mount 10.0.0.4:/home /mnt/nfs/home
