@@ -24,7 +24,6 @@ for ((i=0;i<var1;i+=1));
 do
 var2=$((var2 + 1))
 echo "/home           10.0.0.$var2(rw,sync,no_root_squash,no_subtree_check)" >> exports
-ssh-keyscan -H 10.0.0.$var2 >> ~/.ssh/known_hosts
 done
 
 exportfs -a
