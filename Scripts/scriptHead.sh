@@ -7,6 +7,7 @@ var2=4
 vmname=$2
 var0=0
 var00=00
+user=$3
 
 # Add hosts names
 cd /home
@@ -24,9 +25,9 @@ fi
 done
 
 # Create dir .ssh and public ssh key
-mkdir /home/userBBDD001/.ssh
+mkdir /home/$user/.ssh
 chmod 777 .ssh
-ssh-keygen -t rsa -N "" -f /home/userBBDD001/.ssh/id_rsa
+ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa
 
 # Install NFS server packages
 yum clean all
@@ -49,7 +50,7 @@ else
                 echo "10.0.0.$var2 $vmname$i" >> hosts
         fi
 fi
-ssh-keyscan -H 10.0.0.$var2 >> /home/userBBDD001/.ssh/known_hosts
+ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
 done
 
 exportfs -a
