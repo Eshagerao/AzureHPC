@@ -610,7 +610,7 @@
         "typeHandlerVersion": "1.2",
         "settings": {
           "fileUris": "[variables('osSettings').scripts]",
-            "commandToExecute": "[concat('bash scriptHead.sh ',parameters('computeNodeNumber'))]"
+            "commandToExecute": "[concat('bash scriptHead.sh ',parameters('computeNodeNumber'),' ',parameters('computeNodeNamePrefix'),' ',parameters('adminUsername'))]"
         }
       }
     },
