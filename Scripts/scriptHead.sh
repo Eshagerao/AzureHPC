@@ -21,7 +21,7 @@ else
                 echo "$vmname$i" >> hosts
         fi
 fi
-
+done
 
 # Create dir .ssh and public ssh key
 mkdir /home/userBBDD001/.ssh
