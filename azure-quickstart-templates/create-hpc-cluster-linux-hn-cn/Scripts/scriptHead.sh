@@ -9,7 +9,15 @@ var2=4
 cd /home
 for ((i=0;i<var1;i+=1));
 do
-echo "IaaSLnxCN-00$i" >> hosts
+if [ "$i" -lt 10 ] ; then
+    echo "IaaSLnxCN-00$i" >> hosts
+else
+        if [ "$i" -lt 100 ] ; then
+                echo "IaaSLnxCN-0$i" >> hosts
+        else
+                echo "IaaSLnxCN-$i" >> hosts
+        fi
+fi
 done
 
 # Create dir .ssh and public ssh key
@@ -29,7 +37,15 @@ for ((i=0;i<var1;i+=1));
 do
 var2=$((var2 + 1))
 echo "/home           10.0.0.$var2(rw,sync,no_root_squash,no_subtree_check)" >> exports
-echo "10.0.0.$var2 IaaSLnxCN-00$i" >> hosts
+if [ "$i" -lt 10 ] ; then
+    echo "10.0.0.$var2 IaaSLnxCN-00$i" >> hosts
+else
+        if [ "$i" -lt 100 ] ; then
+                echo "10.0.0.$var2 IaaSLnxCN-0$i" >> hosts
+        else
+                echo "10.0.0.$var2 IaaSLnxCN-$i" >> hosts
+        fi
+fi
 ssh-keyscan -H 10.0.0.$var2 >> /home/userBBDD001/.ssh/known_hosts
 done
 
@@ -38,3 +54,4 @@ exportfs -a
 # Finally install GCC (c++ and fortran) and OPEN_MPI
 yum install make gcc gcc-c++ gcc-gfortran -y
 yum -y install openmpi openmpi-devel -y
+

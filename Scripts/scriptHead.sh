@@ -9,7 +9,15 @@ var2=4
 cd /home
 for ((i=0;i<var1;i+=1));
 do
-echo "IaaSLnxCN-00$i" >> hosts
+if [ "$i" -lt 10 ] ; then
+    echo "IaaSLnxCN-00$i" >> hosts
+else
+        if [ "$i" -lt 100 ] ; then
+                echo "IaaSLnxCN-0$i" >> hosts
+        else
+                echo "IaaSLnxCN-$i" >> hosts
+        fi
+fi
 done
 
 # Create dir .ssh and public ssh key
