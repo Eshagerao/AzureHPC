@@ -23,12 +23,13 @@ yum install nfs-utils nfs-utils-lib -y
 service rpcbind start
 service nfs start
 
-# Add host to export NFS and host to known_host for SSH
+# Add host to export NFS, IP and name to hosts file and host to known_host for SSH
 cd /etc
 for ((i=0;i<var1;i+=1));
 do
 var2=$((var2 + 1))
 echo "/home           10.0.0.$var2(rw,sync,no_root_squash,no_subtree_check)" >> exports
+echo "10.0.0.$var2 IaaSLnxCN-00$i" >> hosts
 ssh-keyscan -H 10.0.0.$var2 >> /home/userBBDD001/.ssh/known_hosts
 done
 
