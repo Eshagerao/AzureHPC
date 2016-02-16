@@ -3,4 +3,4 @@ cd "C:/Users/Juanjo/Dropbox/SolidQ/1_TFM/Template/github/azure-quickstart-templa
 Login-AzureRmAccount
 Select-AzureRMSubscription -SubscriptionName IB-SQIB-AZINTRL
 
-.\script_last.ps1 -rg rg-001 -name hpcc -cnn 3
+.\script_powershell.ps1 -rg rg-001 -name hpcc -cnn 3
