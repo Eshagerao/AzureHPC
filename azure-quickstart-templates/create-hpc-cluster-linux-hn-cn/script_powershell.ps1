@@ -1,5 +1,5 @@
 ﻿param([string]$rg = "rg-004", [string]$cnn = "2")
-$vmTemplate="C:\Users\Juanjo\Dropbox\SolidQ\1_TFM\Template\Last\azuredeployLast.json"
+$vmTemplate="https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/azuredeploy.json"
 
 New-AzureRmResourceGroup -Location "North Europe" -Name $rg
 New-AzureRmResourceGroupDeployment -ResourceGroupName $rg -TemplateUri $vmTemplate -computeNodeNumber $cnn
