@@ -5,21 +5,25 @@
 var1=$1
 var2=4
 
+# Add hosts names
 cd /home
 for ((i=0;i<var1;i+=1));
 do
 echo "IaaSLnxCN-00$i" >> hosts
 done
 
+# Create dir .ssh and public ssh key
 mkdir /home/userBBDD001/.ssh
 chmod 777 .ssh
 ssh-keygen -t rsa -N "" -f /home/userBBDD001/.ssh/id_rsa
 
+# Install NFS server packages
 yum clean all
 yum install nfs-utils nfs-utils-lib -y
 service rpcbind start
 service nfs start
 
+# Add host to export NFS and host to known_host for SSH
 cd /etc
 for ((i=0;i<var1;i+=1));
 do
