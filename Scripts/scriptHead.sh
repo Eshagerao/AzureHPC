@@ -8,11 +8,11 @@ var2=4
 cd /home
 for ((i=0;i<var1;i+=1));
 do
-echo "IaaSLnxCN-00$i" >> hosts.txt
+echo "IaaSLnxCN-00$i" >> hosts
 done
 
 mkdir /home/userBBDD001/.ssh
-ssh-keygen -t rsa -N "" -f /home/userBBDD001/.ssh/my.key
+ssh-keygen -t rsa -N "" -f /home/userBBDD001/.ssh/id_rsa
 
 yum clean all
 yum install nfs-utils nfs-utils-lib -y
