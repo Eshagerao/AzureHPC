@@ -4,6 +4,7 @@
 # un script de bash, aunque se ejecute desde otro shell.
 user=$1
 
+cd /home/$user
 echo "-----------------------------------------------" >> info
 echo "Los nombres de los host se encuentran en" >> info
 echo "/mnt/nfs/home/hosts" >> info
