@@ -9,6 +9,10 @@ var0=0
 var00=00
 user=$3
 
+# Disable firewall
+systemctl disable firewalld
+systemctl stop firewalld
+
 # Add hosts names
 cd /home
 for ((i=0;i<var1;i+=1));
