@@ -513,7 +513,7 @@
             "value": "[parameters('clusterName')]"
           },
           "vmSize": {
-            "value": "[parameters('computeNodeVMSize')]"
+            "value": "[parameters('headNodeVMSize')]"
           },
           "storageAccountName": {
             "value": "[variables('hnStorageAccountName')]"
