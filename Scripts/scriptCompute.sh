@@ -17,7 +17,6 @@ systemctl disable firewalld
 systemctl stop firewalld
 
 mkdir ~/.ssh
-chmod 777 .ssh
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
 yum clean all
