@@ -1,0 +1,6 @@
+cd "C:/Users/Juanjo/Dropbox/SolidQ/1_TFM/Template/github/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn"
+
+Login-AzureRmAccount
+Select-AzureRMSubscription -SubscriptionName IB-SQIB-AZINTRL
+
+.\script_powershell.ps1 -rg rg-001 -name hpcc -cnn 3

@@ -1,0 +1,7 @@
+{
+  "itemDisplayName": "Create HPC cluster with Linux head and compute nodes",
+  "description": "This template creates an HPC cluster with Linux head and compute nodes. The head node with local HPC databases acts as domain controller as well.",
+  "summary": "This template creates an HPC cluster with Linux head and compute nodes",
+  "githubUsername": "JuanJoseGarciaUCLM",
+  "dateUpdated": "2016-02-16"
+}
