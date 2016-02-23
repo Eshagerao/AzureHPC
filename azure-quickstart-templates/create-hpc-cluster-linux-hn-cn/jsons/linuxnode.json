@@ -219,7 +219,7 @@
         "typeHandlerVersion": "1.2",
         "settings": {
           "fileUris": "[variables('osSettings').scripts]",
-          "commandToExecute": "bash scriptCompute.sh"
+          "commandToExecute": "[concat('bash scriptCompute.sh ',parameters('adminUsername'))]"
         }
       }
     }
