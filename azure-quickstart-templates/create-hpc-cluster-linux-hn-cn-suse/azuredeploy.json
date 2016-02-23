@@ -40,7 +40,7 @@
     },
     "headNodeVMSize": {
       "type": "string",
-      "defaultValue": "Standard_A4",
+      "defaultValue": "Standard_A8",
       "allowedValues": [
         "Standard_A3",
         "Standard_A4",
