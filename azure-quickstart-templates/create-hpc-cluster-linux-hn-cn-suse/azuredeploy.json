@@ -82,7 +82,7 @@
     },
     "computeNodeImage": {
       "type": "string",
-      "defaultValue": "CentOS_7.0",
+      "defaultValue": "SLES_HPC_12",
       "allowedValues": [
         "CentOS_6.6",
         "CentOS_7.0",
@@ -98,7 +98,7 @@
     },
     "computeNodeImagePublisher": {
       "type": "string",
-      "defaultValue": "OpenLogic",
+      "defaultValue": "SUSE",
       "metadata": {
         "description": "The VM image publisher for the compute nodes"
       }
@@ -172,14 +172,14 @@
     },
     "computeNodeImageOffer": {
       "type": "string",
-      "defaultValue": "CentOS",
+      "defaultValue": "SLES-HPC",
       "metadata": {
         "description": "The VM image offer for the compute nodes"
       }
     },
     "computeNodeImageSku": {
       "type": "string",
-      "defaultValue": "7.0",
+      "defaultValue": "12",
       "metadata": {
         "description": "The VM image sku for the compute nodes"
       }
