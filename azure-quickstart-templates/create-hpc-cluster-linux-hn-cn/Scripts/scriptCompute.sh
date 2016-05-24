@@ -22,6 +22,7 @@ ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
 yum clean all
 #yum update -y
+#yum install deltarpm -y
 #yum install nfs-utils -y
 
 #mkdir -p /mnt/nfs/home

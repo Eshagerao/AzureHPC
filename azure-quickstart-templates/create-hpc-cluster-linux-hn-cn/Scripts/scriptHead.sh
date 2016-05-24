@@ -35,7 +35,7 @@ ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa
 
 # Install NFS server packages
 yum clean all
-yum install deltarpm
+yum install deltarpm -y
 yum update -y
 yum install nfs-utils -y
 
