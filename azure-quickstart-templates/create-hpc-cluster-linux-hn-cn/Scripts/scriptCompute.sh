@@ -20,8 +20,9 @@ systemctl stop firewalld
 mkdir ~/.ssh
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
-#yum clean all
-#yum install nfs-utils nfs-utils-lib -y
+yum clean all
+yum update -y
+yum install nfs-utils -y
 
-#mkdir -p /mnt/nfs/home
-#mount 10.0.0.4:/home /mnt/nfs/home
+mkdir -p /mnt/nfs/home
+mount 10.0.0.4:/home /mnt/nfs/home

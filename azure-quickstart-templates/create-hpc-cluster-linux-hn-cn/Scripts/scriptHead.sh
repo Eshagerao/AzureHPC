@@ -36,6 +36,7 @@ ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa
 # Install NFS server packages
 yum clean all
 yum install deltarpm
+yum update -y
 yum install nfs-utils -y
 
 # Add host to export NFS, IP and name to hosts file and host to known_host for SSH
