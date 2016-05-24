@@ -34,10 +34,12 @@ chmod 777 .ssh
 ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa
 
 # Install NFS server packages
-#yum clean all
-#yum install deltarpm -y
+yum clean all
+yum install deltarpm -y
 #yum update -y
-#yum install nfs-utils -y
+yum update NetworkManager.x86_64 -y
+yum update lvm2-7:2.02.105-14.el7.x86_64 -y
+yum install nfs-utils -y
 
 # Add host to export NFS, IP and name to hosts file and host to known_host for SSH
 cd /etc
