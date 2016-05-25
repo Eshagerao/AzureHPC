@@ -27,5 +27,5 @@ yum update NetworkManager.x86_64 -y
 yum update lvm2-7:2.02.105-14.el7.x86_64 -y
 yum install nfs-utils -y
 
-#mkdir -p /mnt/nfs/home
-#mount 10.0.0.4:/home /mnt/nfs/home
+mkdir -p /mnt/nfs/home
+mount 10.0.0.4:/home /mnt/nfs/home
