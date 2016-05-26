@@ -39,8 +39,6 @@ yum install deltarpm -y
 
 # We need to update some packages to solve some problems
 #yum update -y
-
-
 yum update NetworkManager.x86_64 -y
 yum update lvm2-7:2.02.105-14.el7.x86_64 -y
 yum install nfs-utils -y
