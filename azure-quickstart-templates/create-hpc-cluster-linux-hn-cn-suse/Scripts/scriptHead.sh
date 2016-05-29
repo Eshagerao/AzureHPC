@@ -27,3 +27,8 @@ else
         fi
 fi
 done
+
+# Create dir .ssh and public ssh key
+mkdir /home/$user/.ssh
+chmod 777 .ssh
+ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa
