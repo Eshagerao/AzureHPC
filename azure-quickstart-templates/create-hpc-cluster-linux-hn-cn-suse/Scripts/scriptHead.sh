@@ -32,3 +32,36 @@ done
 mkdir /home/$user/.ssh
 chmod 777 .ssh
 ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa
+
+# Install NFS server packages
+zypper install nfs-kernel-server
+
+# Next we need to start the services and add them to the boot menu.
+systemctl enable rpcbind.service
+systemctl start rpcbind.service
+systemctl enable nfsserver.service
+systemctl start nfsserver.service
+
+mkdir /var/nfs
+chown nobody:nogroup /var/nfs
+
+# Add host to export NFS, IP and name to hosts file and host to known_host for SSH
+cd /etc
+for ((i=0;i<var1;i+=1));
+do
+var2=$((var2 + 1))
+echo "/home           10.0.0.$var2(rw,sync,no_root_squash,no_subtree_check)" >> exports
+if [ "$i" -lt 10 ] ; then
+    echo "10.0.0.$var2 $vmname$var00$i" >> hosts
+else
+         if [ "$i" -lt 100 ] ; then
+                 echo "10.0.0.$var2 $vmname$var0$i" >> hosts
+         else
+                 echo "10.0.0.$var2 $vmname$i" >> hosts
+         fi
+fi
+ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
+done
+
+
+exportfs -a
