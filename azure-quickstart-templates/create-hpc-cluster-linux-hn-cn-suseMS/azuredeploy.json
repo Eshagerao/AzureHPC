@@ -82,7 +82,7 @@
     },
     "computeNodeImage": {
       "type": "string",
-      "defaultValue": "b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708",
+      "defaultValue": "SLES_HPC_12",
       "allowedValues": [
         "CentOS_6.6",
         "CentOS_7.0",
@@ -90,7 +90,6 @@
         "SLES_Premium_12",
         "SLES_HPC_12",
         "SLES_HPC_Premium_12",
-        "b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708",
         "Ubuntu_14.04"
       ],
       "metadata": {
