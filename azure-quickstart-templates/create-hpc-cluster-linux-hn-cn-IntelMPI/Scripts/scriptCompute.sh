@@ -29,3 +29,9 @@ yum install nfs-utils -y
 
 mkdir -p /mnt/nfs/home
 mount 10.0.0.4:/home /mnt/nfs/home
+
+#Optionally, install IntelMPI
+wget https://github.com/JuanJoseGarciaUCLM/AzureHPC/raw/master/Intel%20MPI/Intel_Linux_MPI_Runtime_l_mpi-rt_p_4.1.0.024.tgz
+tar xvzf Intel_Linux_MPI_Runtime_l_mpi-rt_p_4.1.0.024.tgz
+cd l_mpi-rt_p_4.1.0.024/
+sudo ./install.sh -s SilentInstallConfigFile.ini
