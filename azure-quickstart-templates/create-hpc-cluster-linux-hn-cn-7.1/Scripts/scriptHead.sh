@@ -34,8 +34,8 @@ chmod 777 .ssh
 ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa
 
 # Install NFS server packages
-yum clean all
-yum install deltarpm -y
+#yum clean all
+#yum install deltarpm -y
 
 # We need to update some packages to solve some problems
 #yum update -y
