@@ -13,4 +13,6 @@ echo "Las claves privadas y publicas se encuentran en" >> info
 echo "/mnt/nfs/home/$user/.ssh/id_rsa" >> info
 echo "-----------------------------------------------" >> info
 
-
+mkdir /home/$user/.ssh
+chmod 777 .ssh
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
