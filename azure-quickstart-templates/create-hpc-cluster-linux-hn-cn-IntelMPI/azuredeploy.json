@@ -82,7 +82,7 @@
     },
     "computeNodeImage": {
       "type": "string",
-      "defaultValue": "SLES_HPC_12",
+      "defaultValue": "CentOS_7.0",
       "allowedValues": [
         "CentOS_6.6",
         "CentOS_7.0",
@@ -98,7 +98,7 @@
     },
     "computeNodeImagePublisher": {
       "type": "string",
-      "defaultValue": "SUSE",
+      "defaultValue": "OpenLogic",
       "metadata": {
         "description": "The VM image publisher for the compute nodes"
       }
@@ -172,14 +172,14 @@
     },
     "computeNodeImageOffer": {
       "type": "string",
-      "defaultValue": "SLES-HPC",
+      "defaultValue": "CentOS",
       "metadata": {
         "description": "The VM image offer for the compute nodes"
       }
     },
     "computeNodeImageSku": {
       "type": "string",
-      "defaultValue": "12",
+      "defaultValue": "7.0",
       "metadata": {
         "description": "The VM image sku for the compute nodes"
       }
@@ -245,10 +245,10 @@
     },
     "artifactsBaseUrl": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-suse/jsons",
+      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/jsons",
       "metadata": {
         "description": "Base URL for Marketplace",
-        "artifactsBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-suse/jsons"
+        "artifactsBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/jsons"
       }
     }
   },
@@ -359,7 +359,7 @@
     "computeNodeTemplateUrl": "[concat(parameters('artifactsBaseUrl'), '/', variables('curCNOSPlatformRelated').template)]",
 
     "computeNodeCustomData": "[base64(concat('HPCClusterName=', parameters('clusterName'), '\r\nImageCategory=public\r\nImageName=', parameters('computeNodeImageOffer'), '-', parameters('computeNodeImageSku'), '\r\nVMSize=', parameters('computeNodeVMSize')))]",
-    "templateBaseUrlScript": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-suse/Scripts",
+    "templateBaseUrlScript": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/Scripts",
     "osSettings": {
         "scripts": [
             "[concat(variables('templateBaseUrlScript'), '/scriptHead.sh')]"            
