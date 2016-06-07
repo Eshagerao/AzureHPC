@@ -126,7 +126,7 @@
   },
   "variables": {
     "osDiskUri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/', toLower(parameters('vmName')), '-os', uniqueString(parameters('subnetId')), '.vhd')]",
-    "templateBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/Scripts",
+    "templateBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-rdma/Scripts",
     "osSettings": {
         "scripts": [
             "[concat(variables('templateBaseUrl'), '/scriptCompute.sh')]"
