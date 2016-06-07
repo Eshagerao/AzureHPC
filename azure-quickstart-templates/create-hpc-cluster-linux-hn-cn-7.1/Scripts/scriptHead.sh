@@ -39,17 +39,17 @@ yum install deltarpm -y
 
 # We need to update some packages to solve some problems
 #yum update -y
-yum update NetworkManager.x86_64 -y
-yum update lvm2-7:2.02.105-14.el7.x86_64 -y
-yum install nfs-utils -y
+#yum update NetworkManager.x86_64 -y
+#yum update lvm2-7:2.02.105-14.el7.x86_64 -y
+#yum install nfs-utils -y
 
 # Next we need to start the services and add them to the boot menu.
-systemctl enable rpcbind
-systemctl enable nfs-server
-systemctl start rpcbind
-systemctl start nfs-server
-systemctl start nfs-lock
-systemctl start nfs-idmap
+#systemctl enable rpcbind
+#systemctl enable nfs-server
+#systemctl start rpcbind
+#systemctl start nfs-server
+#systemctl start nfs-lock
+#systemctl start nfs-idmap
 
 # Add host to export NFS, IP and name to hosts file and host to known_host for SSH
 cd /etc
@@ -70,9 +70,9 @@ ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
 done
 
 #Start the NFS service
-systemctl restart nfs-server 
+#systemctl restart nfs-server 
 
 # Finally install GCC (c++ and fortran) and OPEN_MPI
-yum install make gcc gcc-c++ gcc-gfortran -y
-yum -y install openmpi openmpi-devel -y
+#yum install make gcc gcc-c++ gcc-gfortran -y
+#yum -y install openmpi openmpi-devel -y
 
