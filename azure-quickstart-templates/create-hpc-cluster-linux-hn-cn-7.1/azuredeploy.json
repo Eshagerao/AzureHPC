@@ -172,7 +172,7 @@
     },
     "computeNodeImageOffer": {
       "type": "string",
-      "defaultValue": "CentOS",
+      "defaultValue": "CentOS-HPC",
       "metadata": {
         "description": "The VM image offer for the compute nodes"
       }
@@ -267,7 +267,7 @@
       },
       "CentOS_7.1": {
         "publisher": "OpenLogic",
-        "offer": "CentOS",
+        "offer": "CentOS-HPC",
         "sku": "7.1"
       },
       "SLES_12": {
