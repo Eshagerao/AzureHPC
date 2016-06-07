@@ -17,7 +17,9 @@ echo "-----------------------------------------------" >> info
 systemctl disable firewalld
 systemctl stop firewalld
 
-mkdir ~/.ssh
+# Create dir .ssh and public ssh key
+mkdir /home/$user/.ssh
+chmod 777 .ssh
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
 yum clean all
