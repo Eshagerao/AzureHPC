@@ -499,7 +499,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('artifactsBaseUrl'), '/headnode-rdma-disabled.json')]",
+          "uri": "[concat(parameters('artifactsBaseUrl'), '/headnode-rdma-enabled.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
