@@ -218,7 +218,7 @@
     },
     "adminUsername": {
       "type": "string",
-      "defaultValue": "userBBDD001",
+      "defaultValue": "user01",
       "metadata": {
         "description": "Administrator user name for the virtual machines and the Active Directory domain."
       }
