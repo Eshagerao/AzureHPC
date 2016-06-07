@@ -359,7 +359,7 @@
     "computeNodeTemplateUrl": "[concat(parameters('artifactsBaseUrl'), '/', variables('curCNOSPlatformRelated').template)]",
 
     "computeNodeCustomData": "[base64(concat('HPCClusterName=', parameters('clusterName'), '\r\nImageCategory=public\r\nImageName=', parameters('computeNodeImageOffer'), '-', parameters('computeNodeImageSku'), '\r\nVMSize=', parameters('computeNodeVMSize')))]",
-    "templateBaseUrlScript": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/Scripts",
+    "templateBaseUrlScript": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-rdma/Scripts",
     "osSettings": {
         "scripts": [
             "[concat(variables('templateBaseUrlScript'), '/scriptHead.sh')]"            

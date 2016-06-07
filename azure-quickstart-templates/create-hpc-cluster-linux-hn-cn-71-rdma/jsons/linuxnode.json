@@ -118,7 +118,7 @@
     },
     "computeNodePostConfigScript": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/Scripts",
+      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-rdma/Scripts",
       "metadata": {
         "description": "Not used currently."
       }
