@@ -377,6 +377,10 @@
       "name": "[variables('hnStorageAccountName')]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('clusterName')]",
+        "hpccresource": "[concat(parameters('clusterName'), '-Storage')]"
+      },
       "properties": {
         "accountType": "[variables('storageAccountType')]"
       }
@@ -629,7 +633,10 @@
       "name": "[concat(variables('storageAccountNamePrefix'), padLeft(string(copyIndex(variables('cnStorageAccountStartIndex'))), variables('storageAccountIndexWidth'), '0'))]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[parameters('location')]",
-      "tags": { },
+      "tags": {
+        "hpccluster": "[parameters('clusterName')]",
+        "hpccresource": "[concat(parameters('clusterName'), '-Storage')]"
+      },
       "dependsOn": [
         "Microsoft.Resources/deployments/createHeadNode"
       ],
