@@ -250,13 +250,6 @@
         "description": "Base URL for Marketplace",
         "artifactsBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-rdma/jsons"
       }
-    },
-    "tagvalues": {
-      "type": "object",
-      "defaultValue": {
-        "so": "CentOs",
-        "type": "MV"
-      }
     }
   },
   "variables": {
@@ -499,8 +492,8 @@
       "type": "Microsoft.Resources/deployments",
       "name": "createHeadNode",
       "tags": {
-        "so": "[parameters('tagvalues').so]",
-        "type": "[parameters('tagvalues').type]"
+        "so": "CentOs",
+        "type": "VM"
       },
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicNameHN'))]",
@@ -646,8 +639,8 @@
       "type": "Microsoft.Resources/deployments",
       "name": "[concat('create', parameters('computeNodeNamePrefix'), padLeft(string(copyIndex()), 3, '0'))]",
       "tags": {
-        "so": "[parameters('tagvalues').so]",
-        "type": "[parameters('tagvalues').type]"
+        "so": "CentOs",
+        "type": "VM"
       },
       "dependsOn": [
         "Microsoft.Resources/deployments/createAvailabilitySets",
