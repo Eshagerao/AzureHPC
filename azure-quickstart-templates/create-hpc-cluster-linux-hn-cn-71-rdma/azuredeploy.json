@@ -491,9 +491,6 @@
       "apiVersion": "2015-01-01",
       "type": "Microsoft.Resources/deployments",
       "name": "createHeadNode",
-      "tags": {
-        "packageId": "HPCCentOs"
-      },
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicNameHN'))]",
         "[concat('Microsoft.Storage/storageAccounts/', variables('hnStorageAccountName'))]",
