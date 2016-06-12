@@ -145,6 +145,10 @@
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[parameters('nicName')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('tagname')]",
+        "hpccresource": "[concat(parameters('tagname'), '-Vnet')]"
+      },
       "properties": {
         "ipConfigurations": [
           {
