@@ -709,7 +709,7 @@
             "value": "[parameters('privateDomainName')]"
           },
           "tagname": {
-            "value": "HPCTag"
+            "value": "[parameters('clusterName')]"
           }
         }
       }
