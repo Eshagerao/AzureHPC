@@ -106,7 +106,7 @@
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
       "tags": {
-        "packageId": "HPCCentOs"
+        "type": "HPCCentOs"
       },
       "properties": {
         "availabilitySet": {
