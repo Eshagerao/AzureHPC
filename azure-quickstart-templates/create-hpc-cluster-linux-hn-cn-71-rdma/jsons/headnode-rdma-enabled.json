@@ -97,6 +97,12 @@
       "metadata": {
         "description": "The fully qualified domain name (FQDN) for the private domain forest which will be created by this template, for example 'hpc.local'."
       }
+    },
+    "tagname": {
+      "type": "string",
+      "metadata": {
+        "description": "The name used on tags for resources."
+      }
     }
   },
   "resources": [
@@ -106,7 +112,8 @@
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
       "tags": {
-        "type": "HPCCentOs"
+        "hpccluster": "[parameters('tagname')]",
+        "hpccresource": "[concat(parameters('tagname'), '-VM')]"
       },
       "properties": {
         "availabilitySet": {
