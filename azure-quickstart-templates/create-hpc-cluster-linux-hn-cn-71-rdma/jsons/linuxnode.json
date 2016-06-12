@@ -166,7 +166,7 @@
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
       "tags": {
-        "type": "[parameters('tagname')]"
+        "hpctag": "[parameters('tagname')]"
       },
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
