@@ -492,8 +492,7 @@
       "type": "Microsoft.Resources/deployments",
       "name": "createHeadNode",
       "tags": {
-        "so": "CentOs",
-        "type": "VM"
+        "packageId": "HPCCentOs"
       },
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicNameHN'))]",
@@ -639,8 +638,7 @@
       "type": "Microsoft.Resources/deployments",
       "name": "[concat('create', parameters('computeNodeNamePrefix'), padLeft(string(copyIndex()), 3, '0'))]",
       "tags": {
-        "so": "CentOs",
-        "type": "VM"
+        "packageId": "HPCCentOs"
       },
       "dependsOn": [
         "Microsoft.Resources/deployments/createAvailabilitySets",
