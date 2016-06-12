@@ -147,7 +147,7 @@
       "location": "[parameters('location')]",
       "tags": {
         "hpccluster": "[parameters('tagname')]",
-        "hpccresource": "[concat(parameters('tagname'), '-Vnet')]"
+        "hpccresource": "[concat(parameters('tagname'), '-VNet')]"
       },
       "properties": {
         "ipConfigurations": [
