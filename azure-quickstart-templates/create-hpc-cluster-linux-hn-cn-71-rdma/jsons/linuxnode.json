@@ -122,6 +122,12 @@
       "metadata": {
         "description": "Not used currently."
       }
+    },
+    "tagname": {
+      "type": "string",
+      "metadata": {
+        "description": "The name used on tags for resources."
+      }
     }
   },
   "variables": {
@@ -159,6 +165,9 @@
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "type": "[parameters('tagname')]"
+      },
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
       ],

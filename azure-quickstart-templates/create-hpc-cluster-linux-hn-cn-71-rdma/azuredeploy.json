@@ -619,7 +619,7 @@
       "name": "[concat(variables('storageAccountNamePrefix'), padLeft(string(copyIndex(variables('cnStorageAccountStartIndex'))), variables('storageAccountIndexWidth'), '0'))]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[parameters('location')]",
-      "tags": {},
+      "tags": { },
       "dependsOn": [
         "Microsoft.Resources/deployments/createHeadNode"
       ],
@@ -635,9 +635,6 @@
       "apiVersion": "2015-01-01",
       "type": "Microsoft.Resources/deployments",
       "name": "[concat('create', parameters('computeNodeNamePrefix'), padLeft(string(copyIndex()), 3, '0'))]",
-      "tags": {
-        "packageId": "HPCCentOs"
-      },
       "dependsOn": [
         "Microsoft.Resources/deployments/createAvailabilitySets",
         "Microsoft.Resources/deployments/updateVNetDNS",
@@ -710,6 +707,9 @@
           },
           "privateDomainName": {
             "value": "[parameters('privateDomainName')]"
+          },
+          "tagname": {
+            "value": "HPCTag"
           }
         }
       }
