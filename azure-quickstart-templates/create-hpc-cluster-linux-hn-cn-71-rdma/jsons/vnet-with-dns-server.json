@@ -45,6 +45,12 @@
       "metadata": {
         "description": "The DNS address(es) of the DNS Server(s) used by the VNET"
       }
+    },
+    "tagname": {
+      "type": "string",
+      "metadata": {
+        "description": "The name used on tags for resources."
+      }
     }
   },
   "resources": [
@@ -53,6 +59,10 @@
       "name": "[parameters('virtualNetworkName')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('tagname')]",
+        "hpccresource": "[concat(parameters('tagname'), '-VM')]"
+      },
       "properties": {
         "addressSpace": {
           "addressPrefixes": [

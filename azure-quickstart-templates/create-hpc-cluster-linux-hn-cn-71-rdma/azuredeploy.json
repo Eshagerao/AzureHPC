@@ -598,6 +598,9 @@
               "10.0.0.4",
               "8.8.8.8"
             ]
+          },
+          "tagname": {
+            "value": "[parameters('clusterName')]"
           }
         }
       }
