@@ -386,6 +386,10 @@
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('virtualNetworkName')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('clusterName')]",
+        "hpccresource": "[concat(parameters('clusterName'), '-VNet')]"
+      },
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
