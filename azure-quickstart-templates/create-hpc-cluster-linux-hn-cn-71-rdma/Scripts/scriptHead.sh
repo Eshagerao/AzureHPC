@@ -66,7 +66,12 @@ else
          fi
 fi
 ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
+# known_hosts para que sean del usuario
+#$user -c 'ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts'
 done
+
+# Permisos de la carpeta /home/usuario/.ssh
+# chown -R $user:$user /home/$user/.ssh
 
 #Start the NFS service
 systemctl restart nfs-server 
