@@ -19,7 +19,8 @@ systemctl stop firewalld
 
 mkdir ~/.ssh
 chmod 777 .ssh
-ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+su $user -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
+chown -R $user:$user /home/$user/.ssh
 
 yum clean all
 yum install deltarpm -y

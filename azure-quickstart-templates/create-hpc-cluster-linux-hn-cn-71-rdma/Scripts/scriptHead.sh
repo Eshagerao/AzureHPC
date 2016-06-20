@@ -17,13 +17,14 @@ systemctl stop firewalld
 cd /home
 for ((i=0;i<var1;i+=1));
 do
+var2=$((var2 + 1))
 if [ "$i" -lt 10 ] ; then
-    echo "$vmname$var00$i" >> hosts
+    echo "10.0.0.$var2 $vmname$var00$i" >> hosts
 else
         if [ "$i" -lt 100 ] ; then
-                echo "$vmname$var0$i" >> hosts
+                echo "10.0.0.$var2 $vmname$var0$i" >> hosts
         else
-                echo "$vmname$i" >> hosts
+                echo "10.0.0.$var2 $vmname$i" >> hosts
         fi
 fi
 done
@@ -31,7 +32,7 @@ done
 # Create dir .ssh and public ssh key
 mkdir /home/$user/.ssh
 chmod 777 .ssh
-ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa
+su $user -c 'ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa'
 
 # Install NFS server packages
 yum clean all
@@ -52,6 +53,7 @@ systemctl start nfs-idmap
 
 # Add host to export NFS, IP and name to hosts file and host to known_host for SSH
 cd /etc
+var2=4
 for ((i=0;i<var1;i+=1));
 do
 var2=$((var2 + 1))
@@ -65,9 +67,9 @@ else
                  echo "10.0.0.$var2 $vmname$i" >> hosts
          fi
 fi
-ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
+#ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
 # known_hosts para que sean del usuario
-#$user -c 'ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts'
+su $user -c 'ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts'
 done
 
 # Permisos de la carpeta /home/usuario/.ssh
