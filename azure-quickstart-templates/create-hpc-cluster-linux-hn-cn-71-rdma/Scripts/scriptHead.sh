@@ -32,7 +32,7 @@ done
 # Create dir .ssh and public ssh key
 mkdir /home/$user/.ssh
 chmod 777 .ssh
-su $user -c 'ssh-keygen -t rsa -N "" -f /home/$user/.ssh/id_rsa'
+su $user -c 'ssh-keygen -t rsa -N "" -f /home/user01/.ssh/id_rsa'
 
 # Install NFS server packages
 yum clean all
