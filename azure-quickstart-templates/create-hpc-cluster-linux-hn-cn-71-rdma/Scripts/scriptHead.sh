@@ -8,6 +8,11 @@ vmname=$2
 var0=0
 var00=00
 user=$3
+idrsa1='ssh-keygen -t rsa -N "" -f /home/'
+idrsa2=$idrsa1$user
+idrsaf="$idrsa2/.ssh/id_rsa"
+
+su $user -c 'ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts'
 
 # Disable firewall
 systemctl disable firewalld
@@ -32,7 +37,8 @@ done
 # Create dir .ssh and public ssh key
 mkdir /home/$user/.ssh
 chmod 777 .ssh
-su $user -c 'ssh-keygen -t rsa -N "" -f /home/user01/.ssh/id_rsa'
+su - $user -c "$idrsaf"
+#su - $user -c 'ssh-keygen -t rsa -N "" -f /home/user01/.ssh/id_rsa'
 
 # Install NFS server packages
 yum clean all
@@ -69,7 +75,14 @@ else
 fi
 #ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
 # known_hosts para que sean del usuario
-su $user -c 'ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts'
+khst1='ssh-keyscan -H 10.0.0.'
+khst2=$khst1$var2
+khst1="$khst2 >> /home/"
+khst2=$khst1$user
+khstf="$khst2/.ssh/known_hosts"
+#echo $khstf
+su - $user -c "$khstf"
+#su $user -c 'ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts'
 done
 
 # Permisos de la carpeta /home/usuario/.ssh
