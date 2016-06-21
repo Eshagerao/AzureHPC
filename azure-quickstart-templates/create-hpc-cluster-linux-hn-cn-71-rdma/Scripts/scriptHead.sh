@@ -12,8 +12,6 @@ idrsa1='ssh-keygen -t rsa -N "" -f /home/'
 idrsa2=$idrsa1$user
 idrsaf="$idrsa2/.ssh/id_rsa"
 
-su $user -c 'ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts'
-
 # Disable firewall
 systemctl disable firewalld
 systemctl stop firewalld
