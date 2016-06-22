@@ -38,3 +38,22 @@ else
 fi
 done
 
+# Install NFS server packages
+echo "##Install NFS server packages" >> /home/logg
+yum clean all
+yum install deltarpm -y
+
+# We need to update some packages to solve some problems
+echo "##We need to update some packages to solve some problems" >> /home/logg
+#yum update -y
+yum update NetworkManager.x86_64 -y
+yum install nfs-utils -y
+
+# Next we need to start the services and add them to the boot menu.
+echo "##Next we need to start the services and add them to the boot menu." >> /home/logg
+systemctl enable rpcbind
+systemctl enable nfs-server
+systemctl start rpcbind
+systemctl start nfs-server
+systemctl start nfs-lock
+systemctl start nfs-idmap
