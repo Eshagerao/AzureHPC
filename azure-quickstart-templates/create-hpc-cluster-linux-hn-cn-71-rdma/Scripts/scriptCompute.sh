@@ -28,8 +28,8 @@ yum install deltarpm -y
 yum update NetworkManager.x86_64 -y
 yum install nfs-utils -y
 
-mkdir -p /home
-mount 10.0.0.4:/home /home
+#mkdir -p /home
+#mount 10.0.0.4:/home /home
 
-#mkdir -p /mnt/nfs/home
-#mount 10.0.0.4:/home /mnt/nfs/home
+mkdir -p /mnt/nfs/home
+mount 10.0.0.4:/home /mnt/nfs/home
