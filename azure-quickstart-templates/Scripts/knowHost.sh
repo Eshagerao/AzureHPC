@@ -10,7 +10,6 @@ var00=00
 user=$3
 
 # Add host to export NFS, IP and name to hosts file and host to known_host for SSH
-cd /etc
 for ((i=0;i<var1;i+=1));
 do
 var2=$((var2 + 1))

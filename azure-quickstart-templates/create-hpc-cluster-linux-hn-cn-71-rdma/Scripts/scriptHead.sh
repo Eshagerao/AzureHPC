@@ -76,17 +76,21 @@ else
 fi
 #ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
 # known_hosts para que sean del usuario
-echo "##known_hosts para que sean del usuario" >> /home/logg
-khst1='ssh-keyscan -H 10.0.0.'
-khst2=$khst1$var2
-khst1="$khst2 >> /home/"
-khst2=$khst1$user
-khstf="$khst2/.ssh/known_hosts"
-echo $khstf >> /home/logg
-cd /home/$user
+#khst1='ssh-keyscan -H 10.0.0.'
+#khst2=$khst1$var2
+#khst1="$khst2 >> /home/"
+#khst2=$khst1$user
+#khstf="$khst2/.ssh/known_hosts"
+#echo $khstf >> /home/logg
+#cd /home/$user
 #su - $user -c 'ssh-keyscan -H 10.0.0."$var2" >> ~/.ssh/known_hosts'
-su - $user -c '$khstf'
+#su - $user -c '$khstf'
 done
+echo "##known_hosts para que sean del usuario" >> /home/logg
+cd /home/$user
+wget https://github.com/JuanJoseGarciaUCLM/AzureHPC/raw/master/azure-quickstart-templates/Scripts/knowHost.sh
+sh knowHost.sh $var1 $vmname $user
+
 
 # Permisos de la carpeta /home/usuario/.ssh
 chown -R $user:$user /home/$user/.ssh
