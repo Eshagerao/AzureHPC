@@ -62,4 +62,3 @@ exportfs -a
 # Finally install GCC (c++ and fortran) and OPEN_MPI
 yum install make gcc gcc-c++ gcc-gfortran -y
 yum -y install openmpi openmpi-devel -y
-
