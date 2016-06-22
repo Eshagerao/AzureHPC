@@ -85,11 +85,13 @@ fi
 #cd /home/$user
 #su - $user -c 'ssh-keyscan -H 10.0.0."$var2" >> ~/.ssh/known_hosts'
 #su - $user -c '$khstf'
+cd /home/$user
+sudo -u user01 ssh-keyscan -H 10.0.0.$var2 >> ~/.ssh/known_hosts
 done
 echo "##known_hosts para que sean del usuario" >> /home/logg
 cd /home/$user
-wget https://github.com/JuanJoseGarciaUCLM/AzureHPC/raw/master/azure-quickstart-templates/Scripts/knowHost.sh
-su - $user -c 'sh knowHost.sh $var1 $vmname $user'
+#wget https://github.com/JuanJoseGarciaUCLM/AzureHPC/raw/master/azure-quickstart-templates/Scripts/knowHost.sh
+#su - $user -c 'sh knowHost.sh $var1 $vmname $user'
 
 
 # Permisos de la carpeta /home/usuario/.ssh
