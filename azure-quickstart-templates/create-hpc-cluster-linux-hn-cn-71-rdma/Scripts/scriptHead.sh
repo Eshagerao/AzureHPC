@@ -41,18 +41,18 @@ echo "$idrsaf" >> /home/logg
 #su - $user -c 'ssh-keygen -t rsa -N "" -f /home/user01/.ssh/id_rsa'
 
 # Install NFS server packages
-echo "Install NFS server packages" >> /home/logg
+echo "##Install NFS server packages" >> /home/logg
 yum clean all
 yum install deltarpm -y
 
 # We need to update some packages to solve some problems
-echo "We need to update some packages to solve some problems" >> /home/logg
+echo "##We need to update some packages to solve some problems" >> /home/logg
 #yum update -y
 yum update NetworkManager.x86_64 -y
 yum install nfs-utils -y
 
 # Next we need to start the services and add them to the boot menu.
-echo "Next we need to start the services and add them to the boot menu." >> /home/logg
+echo "##Next we need to start the services and add them to the boot menu." >> /home/logg
 systemctl enable rpcbind
 systemctl enable nfs-server
 systemctl start rpcbind
@@ -61,7 +61,7 @@ systemctl start nfs-lock
 systemctl start nfs-idmap
 
 # Add host to export NFS, IP and name to hosts file and host to known_host for SSH
-echo "#Add host to export NFS, IP and name to hosts file and host to known_host for SSH" >> /home/logg
+echo "##Add host to export NFS, IP and name to hosts file and host to known_host for SSH" >> /home/logg
 cd /etc
 var2=4
 for ((i=0;i<var1;i+=1));
@@ -79,7 +79,7 @@ else
 fi
 #ssh-keyscan -H 10.0.0.$var2 >> /home/$user/.ssh/known_hosts
 # known_hosts para que sean del usuario
-echo "known_hosts para que sean del usuario" >> /home/logg
+echo "##known_hosts para que sean del usuario" >> /home/logg
 khst1='ssh-keyscan -H 10.0.0.'
 khst2=$khst1$var2
 khst1="$khst2 >> /home/"
@@ -97,7 +97,7 @@ chown -R $user:$user /home/$user/.ssh
 #Start the NFS service
 systemctl restart nfs-server 
 
-echo "Fin del script" >> /home/logg
+echo "##Fin del script" >> /home/logg
 # Finally install GCC (c++ and fortran) and OPEN_MPI
 #yum install make gcc gcc-c++ gcc-gfortran -y
 #yum -y install openmpi openmpi-devel -y
