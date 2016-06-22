@@ -89,7 +89,7 @@ done
 echo "##known_hosts para que sean del usuario" >> /home/logg
 cd /home/$user
 wget https://github.com/JuanJoseGarciaUCLM/AzureHPC/raw/master/azure-quickstart-templates/Scripts/knowHost.sh
-su $user -c 'sh knowHost.sh $var1 $vmname $user'
+su - $user -c 'sh knowHost.sh $var1 $vmname $user'
 
 
 # Permisos de la carpeta /home/usuario/.ssh
