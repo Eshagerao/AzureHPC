@@ -86,7 +86,8 @@ fi
 #su - $user -c 'ssh-keyscan -H 10.0.0."$var2" >> ~/.ssh/known_hosts'
 #su - $user -c '$khstf'
 cd /home/$user
-sudo -u user01 ssh-keyscan -H 10.0.0.$var2 >> ~/.ssh/known_hosts
+sudo -u user01 ssh-keyscan -H 10.0.0.5 >> ~/.ssh/known_hosts
+sudo -u user01 ssh-keyscan -H 10.0.0.6 >> ~/.ssh/known_hosts
 done
 echo "##known_hosts para que sean del usuario" >> /home/logg
 cd /home/$user
