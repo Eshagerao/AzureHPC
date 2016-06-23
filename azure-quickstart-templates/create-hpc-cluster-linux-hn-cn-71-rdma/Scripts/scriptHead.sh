@@ -21,6 +21,11 @@ echo "Create dir .ssh and public ssh key" >> /home/logg
 mkdir ~/.ssh
 chmod 777 .ssh
 su - $user -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
+cd /home/$user
+echo "##known_hosts para que sean del usuario" >> /home/logg
+sudo -u user01 ssh-keyscan -H 10.0.0.5 >> ~/.ssh/known_hosts
+sudo -u user01 ssh-keyscan -H 10.0.0.6 >> ~/.ssh/known_hosts
+
 
 # Add hosts names
 cd /home
@@ -85,12 +90,12 @@ fi
 #cd /home/$user
 #su - $user -c 'ssh-keyscan -H 10.0.0."$var2" >> ~/.ssh/known_hosts'
 #su - $user -c '$khstf'
-cd /home/$user
-sudo -u user01 ssh-keyscan -H 10.0.0.5 >> ~/.ssh/known_hosts
-sudo -u user01 ssh-keyscan -H 10.0.0.6 >> ~/.ssh/known_hosts
+#cd /home/$user
+#sudo -u user01 ssh-keyscan -H 10.0.0.5 >> ~/.ssh/known_hosts
+#sudo -u user01 ssh-keyscan -H 10.0.0.6 >> ~/.ssh/known_hosts
 done
-echo "##known_hosts para que sean del usuario" >> /home/logg
-cd /home/$user
+
+#cd /home/$user
 #wget https://github.com/JuanJoseGarciaUCLM/AzureHPC/raw/master/azure-quickstart-templates/Scripts/knowHost.sh
 #su - $user -c 'sh knowHost.sh $var1 $vmname $user'
 
