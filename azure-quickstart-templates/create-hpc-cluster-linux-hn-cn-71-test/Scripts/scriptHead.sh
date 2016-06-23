@@ -23,7 +23,9 @@ chmod 777 .ssh
 su - $user -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
 cd /home/$user
 echo "##known_hosts para que sean del usuario" >> /home/logg
-sudo -u user01 ssh-keyscan -H 10.0.0.5 >> /home/$user/.ssh/known_hosts
-sudo -u user01 ssh-keyscan -H 10.0.0.6 >> /home/$user/.ssh/known_hosts
+#sudo -u user01 ssh-keyscan -H 10.0.0.5 >> /home/$user/.ssh/known_hosts
+#sudo -u user01 ssh-keyscan -H 10.0.0.6 >> /home/$user/.ssh/known_hosts
+su - $user -c 'ssh-keyscan -H 10.0.0.5 >> /home/user01/.ssh/known_hosts'
+su - $user -c 'ssh-keyscan -H 10.0.0.6 >> /home/user01/.ssh/known_hosts'
 
 echo "##Fin del script test" >> /home/logg
