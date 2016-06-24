@@ -13,3 +13,11 @@ echo "Las claves privadas y publicas se encuentran en" >> info
 echo "/mnt/nfs/home/$user/.ssh/id_rsa" >> info
 echo "-----------------------------------------------" >> info
 
+#Disable firewall
+systemctl disable firewalld
+systemctl stop firewalld
+
+mkdir ~/.ssh
+chmod 777 .ssh
+su - $user -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
+chown -R $user:$user /home/$user/.ssh
