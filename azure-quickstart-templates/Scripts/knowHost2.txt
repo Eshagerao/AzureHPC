@@ -1,0 +1,8 @@
+#! /bin/bash
+# Las líneas que empiezan por "#" son comentarios
+# La primera línea o #! /bin/bash asegura que se interpreta como
+# un script de bash, aunque se ejecute desde otro shell.
+# Add host to export NFS, IP and name to hosts file and host to known_host for SSH
+
+su - user01 -c 'ssh-keyscan -H 10.0.0.5 >> ~/.ssh/known_hosts'
+su - user01 -c 'ssh-keyscan -H 10.0.0.6 >> ~/.ssh/known_hosts'
