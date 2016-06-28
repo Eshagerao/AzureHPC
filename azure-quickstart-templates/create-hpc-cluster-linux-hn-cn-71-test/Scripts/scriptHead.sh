@@ -20,8 +20,9 @@ chmod 777 .ssh
 su - $usuario -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
 su - $usuario -c 'cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys'
 su - $usuario -c 'echo "Host *" >> ~/.ssh/config'
-su - $usuario -c 'echo "     StrictHostKeyChecking no" >> ~/.ssh/config'
-su - $usuario -c 'echo "     UserKnownHostsFile /dev/null" >> ~/.ssh/config'
+su - $usuario -c 'echo "    UserKnownHostsFile /dev/null" >> ~/.ssh/config'
+su - $usuario -c 'echo "    StrictHostKeyChecking no" >> ~/.ssh/config'
+su - $usuario -c 'echo "    LogLevel ERROR" >> ~/.ssh/config'
 chown -R $usuario:$usuario /home/$usuario/.ssh
 
 
@@ -68,5 +69,7 @@ systemctl start nfs-idmap
 
 #Start the NFS service
 systemctl restart nfs-server
+
+chmod 600 /home/$usuario/.ssh/config
 
 echo "##Fin del script test" >> /home/logg
