@@ -55,6 +55,7 @@ echo "##We need to update some packages to solve some problems" >> /home/logg
 #yum update -y
 yum update NetworkManager.x86_64 -y
 yum install nfs-utils -y
+chmod -R 777 /home
 
 # Next we need to start the services and add them to the boot menu.
 echo "##Next we need to start the services and add them to the boot menu." >> /home/logg
