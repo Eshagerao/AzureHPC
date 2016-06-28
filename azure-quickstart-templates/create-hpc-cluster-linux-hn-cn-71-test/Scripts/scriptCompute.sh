@@ -23,4 +23,14 @@ yum update NetworkManager.x86_64 -y
 yum install nfs-utils -y
 
 mkdir -p /home
+
+# Next we need to start the services and add them to the boot menu.
+echo "##Next we need to start the services and add them to the boot menu." >> /home/logg
+systemctl enable rpcbind
+systemctl enable nfs-server
+systemctl start rpcbind
+systemctl start nfs-server
+systemctl start nfs-lock
+systemctl start nfs-idmap
+
 mount 10.0.0.4:/home /home
