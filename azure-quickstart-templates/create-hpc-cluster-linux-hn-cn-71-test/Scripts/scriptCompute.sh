@@ -17,7 +17,10 @@ echo "-----------------------------------------------" >> info
 systemctl disable firewalld
 systemctl stop firewalld
 
-mkdir ~/.ssh
-chmod 777 .ssh
-su - $usuario -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
-chown -R $usuario:$usuario /home/$usuario/.ssh
+yum clean all
+yum install deltarpm -y
+yum update NetworkManager.x86_64 -y
+yum install nfs-utils -y
+
+#mkdir -p /home
+#mount 10.0.0.4:/home /home
