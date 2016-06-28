@@ -34,3 +34,4 @@ systemctl start nfs-lock
 systemctl start nfs-idmap
 
 mount 10.0.0.4:/home /home
+#mount -t nfs 10.0.0.4:/home /home

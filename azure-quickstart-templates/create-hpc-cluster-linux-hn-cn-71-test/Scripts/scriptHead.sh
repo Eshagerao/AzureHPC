@@ -16,7 +16,7 @@ systemctl stop firewalld
 # Create dir .ssh and public ssh key
 echo "Create dir .ssh and public ssh key" >> /home/logg
 mkdir ~/.ssh
-chmod 777 .ssh
+#chmod 777 .ssh
 su - $usuario -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
 su - $usuario -c 'cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys'
 su - $usuario -c 'echo "Host *" >> ~/.ssh/config'
@@ -56,7 +56,7 @@ echo "##We need to update some packages to solve some problems" >> /home/logg
 #yum update -y
 yum update NetworkManager.x86_64 -y
 yum install nfs-utils -y
-chmod -R 777 /home
+#hmod -R 777 /home
 
 # Next we need to start the services and add them to the boot menu.
 echo "##Next we need to start the services and add them to the boot menu." >> /home/logg
