@@ -19,7 +19,6 @@ mkdir ~/.ssh
 #chmod 777 .ssh
 su - $usuario -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
 su - $usuario -c 'cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys'
-chmod 600 ~/.ssh/authorized_keys
 su - $usuario -c 'echo "Host *" >> ~/.ssh/config'
 su - $usuario -c 'echo "    UserKnownHostsFile /dev/null" >> ~/.ssh/config'
 su - $usuario -c 'echo "    StrictHostKeyChecking no" >> ~/.ssh/config'
@@ -72,5 +71,6 @@ systemctl start nfs-idmap
 systemctl restart nfs-server
 
 chmod 600 /home/$usuario/.ssh/config
+chmod 600 /home/$usuario/.ssh/authorized_keys
 
 echo "##Fin del script test" >> /home/logg
