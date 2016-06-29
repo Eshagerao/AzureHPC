@@ -19,7 +19,7 @@ mkdir ~/.ssh
 #chmod 777 .ssh
 su - $usuario -c 'ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa'
 su - $usuario -c 'cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys'
-chmod 644 ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
 su - $usuario -c 'echo "Host *" >> ~/.ssh/config'
 su - $usuario -c 'echo "    UserKnownHostsFile /dev/null" >> ~/.ssh/config'
 su - $usuario -c 'echo "    StrictHostKeyChecking no" >> ~/.ssh/config'
@@ -57,7 +57,7 @@ echo "##We need to update some packages to solve some problems" >> /home/logg
 #yum update -y
 yum update NetworkManager.x86_64 -y
 yum install nfs-utils -y
-#hmod -R 777 /home
+#chmod -R 777 /home
 
 # Next we need to start the services and add them to the boot menu.
 echo "##Next we need to start the services and add them to the boot menu." >> /home/logg
