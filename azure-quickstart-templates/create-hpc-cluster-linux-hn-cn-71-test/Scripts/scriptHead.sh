@@ -61,16 +61,16 @@ yum install nfs-utils -y
 # Next we need to start the services and add them to the boot menu.
 echo "##Next we need to start the services and add them to the boot menu." >> /home/logg
 systemctl enable rpcbind
-systemctl enable nfs-server
 systemctl start rpcbind
+systemctl enable nfs-server
 systemctl start nfs-server
 systemctl start nfs-lock
 systemctl start nfs-idmap
 
 #Start the NFS service
-systemctl restart nfs-server
+#systemctl restart nfs-server
 
-chmod 600 /home/$usuario/.ssh/config
+chmod 644 /home/$usuario/.ssh/config
 chmod 600 /home/$usuario/.ssh/authorized_keys
 
 echo "##Fin del script test" >> /home/logg
