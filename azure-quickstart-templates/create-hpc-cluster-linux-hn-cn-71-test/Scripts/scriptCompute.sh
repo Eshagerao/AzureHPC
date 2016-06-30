@@ -36,4 +36,4 @@ systemctl start nfs-idmap
 mount 10.0.0.4:/home /home
 #mount -t nfs 10.0.0.4:/home /home
 
-sudo setsebool -P use_nfs_home_dirs 1
+setsebool -P use_nfs_home_dirs 1
