@@ -1,4 +1,4 @@
-﻿param([string]$rg = "rg-001", [string]$cnn = "2", [string]$cname = "2")
+﻿param([string]$rg = "rg-001", [string]$cnn = "2", [string]$cname = "hpc")
 $vmTemplate="https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open/azuredeploy.json"
 cd "C:/Users/Juanjo/Dropbox/SolidQ/1_TFM/Template/github/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open"
 Login-AzureRmAccount
