@@ -268,7 +268,7 @@
         "offer": "CentOS",
         "sku": "6.6"
       },
-      "CentOS_7.1": {
+      "CentOS_7.0": {
         "publisher": "OpenLogic",
         "offer": "CentOS",
         "sku": "7.0"
