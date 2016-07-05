@@ -118,15 +118,21 @@
     },
     "computeNodePostConfigScript": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/Scripts",
+      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open/Scripts",
       "metadata": {
         "description": "Not used currently."
+      }
+    },
+    "tagname": {
+      "type": "string",
+      "metadata": {
+        "description": "The name used on tags for resources."
       }
     }
   },
   "variables": {
     "osDiskUri": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/', toLower(parameters('vmName')), '-os', uniqueString(parameters('subnetId')), '.vhd')]",
-    "templateBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/Scripts",
+    "templateBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open/Scripts",
     "osSettings": {
         "scripts": [
             "[concat(variables('templateBaseUrl'), '/scriptCompute.sh')]"
@@ -139,6 +145,10 @@
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[parameters('nicName')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('tagname')]",
+        "hpccresource": "[concat(parameters('tagname'), '-VNet')]"
+      },
       "properties": {
         "ipConfigurations": [
           {
@@ -159,6 +169,10 @@
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('tagname')]",
+        "hpccresource": "[concat(parameters('tagname'), '-VM')]"
+      },
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
       ],

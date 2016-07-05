@@ -40,8 +40,10 @@
     },
     "headNodeVMSize": {
       "type": "string",
-      "defaultValue": "Standard_A8",
+      "defaultValue": "Standard_A1",
       "allowedValues": [
+        "Standard_A1",
+        "Standard_A2",
         "Standard_A3",
         "Standard_A4",
         "Standard_A5",
@@ -82,10 +84,10 @@
     },
     "computeNodeImage": {
       "type": "string",
-      "defaultValue": "CentOS_7.0",
+      "defaultValue": "CentOS_7.1",
       "allowedValues": [
         "CentOS_6.6",
-        "CentOS_7.0",
+        "CentOS_7.1",
         "SLES_12",
         "SLES_Premium_12",
         "SLES_HPC_12",
@@ -105,7 +107,7 @@
     },
     "computeNodeNamePrefix": {
       "type": "string",
-      "defaultValue": "IaaSLnxCN-",
+      "defaultValue": "CN-",
       "minLength": 1,
       "maxLength": 12,
       "metadata": {
@@ -121,8 +123,9 @@
     },
     "computeNodeVMSize": {
       "type": "string",
-      "defaultValue": "Standard_A8",
+      "defaultValue": "Standard_A1",
       "allowedValues": [
+        "Standard_A1",
         "Standard_A2",
         "Standard_A3",
         "Standard_A4",
@@ -172,14 +175,14 @@
     },
     "computeNodeImageOffer": {
       "type": "string",
-      "defaultValue": "CentOS",
+      "defaultValue": "CentOS-HPC",
       "metadata": {
         "description": "The VM image offer for the compute nodes"
       }
     },
     "computeNodeImageSku": {
       "type": "string",
-      "defaultValue": "7.0",
+      "defaultValue": "7.1",
       "metadata": {
         "description": "The VM image sku for the compute nodes"
       }
@@ -218,7 +221,7 @@
     },
     "adminUsername": {
       "type": "string",
-      "defaultValue": "userBBDD001",
+      "defaultValue": "user01",
       "metadata": {
         "description": "Administrator user name for the virtual machines and the Active Directory domain."
       }
@@ -245,10 +248,10 @@
     },
     "artifactsBaseUrl": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/jsons",
+      "defaultValue": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open/jsons",
       "metadata": {
         "description": "Base URL for Marketplace",
-        "artifactsBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/jsons"
+        "artifactsBaseUrl": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open/jsons"
       }
     }
   },
@@ -265,10 +268,10 @@
         "offer": "CentOS",
         "sku": "6.6"
       },
-      "CentOS_7.0": {
+      "CentOS_7.1": {
         "publisher": "OpenLogic",
-        "offer": "CentOS",
-        "sku": "7.0"
+        "offer": "CentOS-HPC",
+        "sku": "7.1"
       },
       "SLES_12": {
         "publisher": "SUSE",
@@ -359,11 +362,11 @@
     "computeNodeTemplateUrl": "[concat(parameters('artifactsBaseUrl'), '/', variables('curCNOSPlatformRelated').template)]",
 
     "computeNodeCustomData": "[base64(concat('HPCClusterName=', parameters('clusterName'), '\r\nImageCategory=public\r\nImageName=', parameters('computeNodeImageOffer'), '-', parameters('computeNodeImageSku'), '\r\nVMSize=', parameters('computeNodeVMSize')))]",
-    "templateBaseUrlScript": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn/Scripts",
+    "templateBaseUrlScript": "https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open/Scripts",
     "osSettings": {
-        "scripts": [
-            "[concat(variables('templateBaseUrlScript'), '/scriptHead.sh')]"            
-        ]
+      "scripts": [
+        "[concat(variables('templateBaseUrlScript'), '/scriptHead.sh')]"
+      ]
     }
 
 
@@ -377,6 +380,10 @@
       "name": "[variables('hnStorageAccountName')]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('clusterName')]",
+        "hpccresource": "[concat(parameters('clusterName'), '-Storage')]"
+      },
       "properties": {
         "accountType": "[variables('storageAccountType')]"
       }
@@ -386,6 +393,10 @@
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('virtualNetworkName')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('clusterName')]",
+        "hpccresource": "[concat(parameters('clusterName'), '-VNet')]"
+      },
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
@@ -439,6 +450,10 @@
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('nicNameHN')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('clusterName')]",
+        "hpccresource": "[concat(parameters('clusterName'), '-VNet')]"
+      },
       "dependsOn": [
         "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
         "Microsoft.Resources/deployments/setupClusterPublicIP"
@@ -499,7 +514,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('artifactsBaseUrl'), '/headnode-rdma-disabled.json')]",
+          "uri": "[concat(parameters('artifactsBaseUrl'), '/headnode-rdma-enabled.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -550,6 +565,9 @@
           },
           "privateDomainName": {
             "value": "[parameters('privateDomainName')]"
+          },
+          "tagname": {
+            "value": "[parameters('clusterName')]"
           }
         }
       }
@@ -591,6 +609,9 @@
               "10.0.0.4",
               "8.8.8.8"
             ]
+          },
+          "tagname": {
+            "value": "[parameters('clusterName')]"
           }
         }
       }
@@ -610,7 +631,7 @@
         "typeHandlerVersion": "1.2",
         "settings": {
           "fileUris": "[variables('osSettings').scripts]",
-            "commandToExecute": "[concat('bash scriptHead.sh ',parameters('computeNodeNumber'),' ',parameters('computeNodeNamePrefix'),' ',parameters('adminUsername'))]"
+          "commandToExecute": "[concat('bash scriptHead.sh ',parameters('computeNodeNumber'),' ',parameters('computeNodeNamePrefix'),' ',parameters('adminUsername'))]"
         }
       }
     },
@@ -619,6 +640,10 @@
       "name": "[concat(variables('storageAccountNamePrefix'), padLeft(string(copyIndex(variables('cnStorageAccountStartIndex'))), variables('storageAccountIndexWidth'), '0'))]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[parameters('location')]",
+      "tags": {
+        "hpccluster": "[parameters('clusterName')]",
+        "hpccresource": "[concat(parameters('clusterName'), '-Storage')]"
+      },
       "dependsOn": [
         "Microsoft.Resources/deployments/createHeadNode"
       ],
@@ -706,6 +731,9 @@
           },
           "privateDomainName": {
             "value": "[parameters('privateDomainName')]"
+          },
+          "tagname": {
+            "value": "[parameters('clusterName')]"
           }
         }
       }

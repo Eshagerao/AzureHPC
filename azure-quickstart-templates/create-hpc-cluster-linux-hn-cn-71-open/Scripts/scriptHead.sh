@@ -73,4 +73,8 @@ systemctl start nfs-idmap
 chmod 644 /home/$usuario/.ssh/config
 chmod 600 /home/$usuario/.ssh/authorized_keys
 
+# Install GCC (c++ and fortran) and OPEN_MPI
+yum install make gcc gcc-c++ gcc-gfortran -y
+yum -y install openmpi openmpi-devel -y
+
 echo "##Fin del script test" >> /home/logg

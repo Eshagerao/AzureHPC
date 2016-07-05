@@ -36,4 +36,8 @@ systemctl start nfs-idmap
 mount 10.0.0.4:/home /home
 #mount -t nfs 10.0.0.4:/home /home
 
+# Install GCC (c++ and fortran) and OPEN_MPI
+yum install make gcc gcc-c++ gcc-gfortran -y
+yum -y install openmpi openmpi-devel -y
+
 setsebool -P use_nfs_home_dirs 1
