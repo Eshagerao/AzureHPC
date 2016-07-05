@@ -15,7 +15,7 @@
       "value": "CentOS_7.0"
     },
     "computeNodeNamePrefix": {
-      "value": "IaaSLnxCN-"
+      "value": "CN-"
     },
     "computeNodeNumber": {
       "value": 2

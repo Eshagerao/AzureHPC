@@ -107,7 +107,7 @@
     },
     "computeNodeNamePrefix": {
       "type": "string",
-      "defaultValue": "IaaSLnxCN-",
+      "defaultValue": "CN-",
       "minLength": 1,
       "maxLength": 12,
       "metadata": {
