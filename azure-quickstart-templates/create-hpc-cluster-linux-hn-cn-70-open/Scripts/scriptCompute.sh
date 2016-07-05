@@ -20,6 +20,7 @@ systemctl stop firewalld
 yum clean all
 yum install deltarpm -y
 yum update NetworkManager.x86_64 -y
+yum update lvm2-7:2.02.105-14.el7.x86_64 -y
 yum install nfs-utils -y
 
 mkdir -p /home
@@ -34,7 +35,6 @@ systemctl start nfs-lock
 systemctl start nfs-idmap
 
 mount 10.0.0.4:/home /home
-#mount -t nfs 10.0.0.4:/home /home
 
 # Install GCC (c++ and fortran) and OPEN_MPI
 yum install make gcc gcc-c++ gcc-gfortran -y
