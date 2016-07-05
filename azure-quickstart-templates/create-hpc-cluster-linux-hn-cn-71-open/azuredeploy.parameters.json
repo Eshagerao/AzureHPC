@@ -26,8 +26,8 @@
     "adminUsername": {
       "value": "user01"
     },
-    "publicIPNewOrExisting":{
-      "value": "new"
+    "adminPassword": {
+            "value": "passBBDD001" 
     }
   }
 }
