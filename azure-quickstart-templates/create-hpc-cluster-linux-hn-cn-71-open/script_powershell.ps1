@@ -1,6 +1,9 @@
 ﻿param([string]$rg = "rg-001", [string]$cnn = "2", [string]$cname = "hpc")
 $vmTemplate="https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open/azuredeploy.json"
+$vmParameter="https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open/azuredeploy.parameters.json"
 cd "C:/Users/Juanjo/Dropbox/SolidQ/1_TFM/Template/github/azure-quickstart-templates/create-hpc-cluster-linux-hn-cn-71-open"
 Login-AzureRmAccount
+Remove-AzureRmResourceGroup -Name rg-001 -Confirm
 New-AzureRmResourceGroup -Location "North Europe" -Name $rg
 New-AzureRmResourceGroupDeployment -ResourceGroupName $rg -TemplateUri $vmTemplate -computeNodeNumber $cnn -clusterName $cname
+New-AzureRmResourceGroupDeployment -ResourceGroupName $rg -TemplateUri $vmTemplate -TemplateParameterUri $vmParameter
