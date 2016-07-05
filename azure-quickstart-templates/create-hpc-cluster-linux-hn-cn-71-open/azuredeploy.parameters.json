@@ -28,6 +28,9 @@
     },
     "adminPassword": {
             "reference": {
+               "keyVault": {
+                  "id": "/subscriptions/0c09ad5b-0e64-44f8-b7f3-7b9e9925d720/resourceGroups/rg-001/providers/Microsoft.KeyVault/vaults/vaultname"
+               }, 
                "secretName": "passBBDD001" 
             }   
         }
