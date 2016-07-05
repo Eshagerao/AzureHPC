@@ -25,6 +25,14 @@
     },
     "adminUsername": {
       "value": "user01"
-    }
+    },
+    "adminPassword": {
+            "reference": {
+               "keyVault": {
+                  "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+               }, 
+               "secretName": "passBBDD001" 
+            }   
+        }
   }
 }
