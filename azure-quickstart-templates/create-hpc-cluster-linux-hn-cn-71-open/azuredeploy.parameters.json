@@ -25,9 +25,6 @@
     },
     "adminUsername": {
       "value": "user01"
-    },
-    "adminPassword": {
-      "value": "passBBDD001"
     }
   }
 }
