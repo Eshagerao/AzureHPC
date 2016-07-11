@@ -73,4 +73,7 @@ systemctl start nfs-idmap
 chmod 644 /home/$usuario/.ssh/config
 chmod 600 /home/$usuario/.ssh/authorized_keys
 
+# Install packages
+yum install cmake svn git tcsh libxml2-devel -y
+
 echo "##Fin del script test" >> /home/logg
