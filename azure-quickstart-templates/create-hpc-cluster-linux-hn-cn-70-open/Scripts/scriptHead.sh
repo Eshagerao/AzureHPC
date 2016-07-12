@@ -28,19 +28,20 @@ chown -R $usuario:$usuario /home/$usuario/.ssh
 
 # Add host to export NFS. IP and name to hosts file
 cd /home
+echo "localhost" >> /home/$usuario/hosts
 for ((i=0;i<var1;i+=1));
 do
 var2=$((var2 + 1))
 echo "/home           10.0.0.$var2(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
 if [ "$i" -lt 10 ] ; then
-    echo "10.0.0.$var2 $vmname$var00$i" >> /home/$usuario/hosts
+    echo "10.0.0.$var2" >> /home/$usuario/hosts
     echo "10.0.0.$var2 $vmname$var00$i" >> /etc/hosts
 else
         if [ "$i" -lt 100 ] ; then
-                echo "10.0.0.$var2 $vmname$var0$i" >> /home/$usuario/hosts
+                echo "10.0.0.$var2" >> /home/$usuario/hosts
                 echo "10.0.0.$var2 $vmname$var0$i" >> /etc/hosts
         else
-                echo "10.0.0.$var2 $vmname$i" >> /home/$usuario/hosts
+                echo "10.0.0.$var2" >> /home/$usuario/hosts
                 echo "10.0.0.$var2 $vmname$i" >> /etc/hosts
         fi
 fi
@@ -66,7 +67,10 @@ systemctl start nfs-server
 systemctl start nfs-lock
 systemctl start nfs-idmap
 
-#Start the NFS service
+echo "
+module load mpi
+export HYDRA_HOST_FILE=$HOME/hosts
+export PATH=$HOME/perl5/perlbrew/perls/perl-5.8.8/bin:$PATH " >> /home/$usuario/.bash_profile
 
 chmod 644 /home/$usuario/.ssh/config
 chmod 600 /home/$usuario/.ssh/authorized_keys

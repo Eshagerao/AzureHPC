@@ -36,7 +36,13 @@ systemctl start nfs-idmap
 
 mount 10.0.0.4:/home /home
 
+echo "
+module load mpi
+export HYDRA_HOST_FILE=$HOME/hosts
+export PATH=$HOME/perl5/perlbrew/perls/perl-5.8.8/bin:$PATH " >> /home/$usuario/.bash_profile
+
 # Install packages
-yum install cmake svn git tcsh libxml2-devel -y
+yum install cmake svn git tcsh libxml2-devel epel-release gcc gcc-c++ gcc-gfortran mvapich2-devel netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-devel -y
+yum install -y perl perl-CPAN perl-CPAN-Meta
 
 setsebool -P use_nfs_home_dirs 1
