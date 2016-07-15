@@ -80,6 +80,12 @@ yum install cmake svn git tcsh libxml2-devel epel-release gcc gcc-c++ gcc-gfortr
 yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-devel -y
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y 
+curl -L http://cpanmin.us | sudo perl - --self-upgrade
+cpanm --sudo install App::perlbrew
+cpanm --sudo XML::LibXML
 
+perlbrew init
+perlbrew --notest install perl-5.8.8
+perlbrew switch perl-5.8.8
 
 echo "##Fin del script test" >> /home/logg
