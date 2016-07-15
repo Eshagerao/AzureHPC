@@ -80,7 +80,7 @@ yum install cmake svn git tcsh libxml2-devel epel-release gcc gcc-c++ gcc-gfortr
 yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-devel -y
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y 
-curl -L http://cpanmin.us | sudo perl - --self-upgrade
+curl -L http://cpanmin.us | perl - --self-upgrade
 cpanm --sudo install App::perlbrew
 cpanm --sudo XML::LibXML
 
