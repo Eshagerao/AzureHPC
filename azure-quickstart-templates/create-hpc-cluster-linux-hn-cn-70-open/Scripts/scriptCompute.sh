@@ -40,5 +40,6 @@ mount 10.0.0.4:/home /home
 yum install cmake svn git tcsh libxml2-devel epel-release gcc gcc-c++ gcc-gfortran mvapich2-devel netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-devel -y
 yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-devel -y
 yum install -y perl perl-CPAN perl-CPAN-Meta
+yum install patch -y
 
 setsebool -P use_nfs_home_dirs 1
