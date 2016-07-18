@@ -81,11 +81,13 @@ yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y 
 curl -L http://cpanmin.us | perl - --self-upgrade
-cpanm --sudo install App::perlbrew
-cpanm --sudo XML::LibXML
+su - $usuario -c 'cpanm --sudo install App::perlbrew'
+su - $usuario -c 'cpanm --sudo XML::LibXML'
+#cpanm --sudo install App::perlbrew
+#cpanm --sudo XML::LibXML
 
-perlbrew init
-perlbrew --notest install perl-5.8.8
-perlbrew switch perl-5.8.8
+#perlbrew init
+#perlbrew --notest install perl-5.8.8
+#perlbrew switch perl-5.8.8
 
 echo "##Fin del script test" >> /home/logg
