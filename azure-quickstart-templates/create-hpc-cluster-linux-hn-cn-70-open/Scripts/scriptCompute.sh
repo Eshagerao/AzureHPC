@@ -42,8 +42,8 @@ yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y
 curl -L http://cpanmin.us | perl - --self-upgrade
-su - $usuario -c 'cpanm --sudo install App::perlbrew'
-su - $usuario -c 'cpanm --sudo XML::LibXML'
+su - $usuario -c 'cpanm install App::perlbrew'
+su - $usuario -c 'cpanm XML::LibXML'
 #cpanm --sudo install App::perlbrew
 #cpanm --sudo XML::LibXML
 
