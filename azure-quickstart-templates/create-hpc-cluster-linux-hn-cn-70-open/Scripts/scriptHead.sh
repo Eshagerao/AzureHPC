@@ -86,7 +86,7 @@ yum install patch -y
 #chmod 777 perl.sh
 #su - $usuario -c './perl.sh'
 
-curl -L http://cpanmin.us | perl - --self-upgrade
+curl -L http://cpanmin.us | sudo perl - --self-upgrade
 #su - $usuario -c 'curl -L http://cpanmin.us | sudo perl - --self-upgrade'
 #su - $usuario -c 'cpanm install App::perlbrew'
 #su - $usuario -c 'cpanm XML::LibXML'

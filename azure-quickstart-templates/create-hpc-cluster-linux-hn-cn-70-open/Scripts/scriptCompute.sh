@@ -45,7 +45,7 @@ yum install patch -y
 #wget https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/perlcompute.sh
 #chmod 777 perl.sh
 
-curl -L http://cpanmin.us | perl - --self-upgrade
+curl -L http://cpanmin.us | sudo perl - --self-upgrade
 #su - $usuario -c 'cpanm install App::perlbrew'
 #su - $usuario -c 'cpanm XML::LibXML'
 #cpanm --sudo install App::perlbrew
