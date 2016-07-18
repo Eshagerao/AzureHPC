@@ -41,10 +41,13 @@ yum install cmake svn git tcsh libxml2-devel epel-release gcc gcc-c++ gcc-gfortr
 yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-devel -y
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y
-curl -L http://cpanmin.us | perl - --self-upgrade
-su - $usuario -c 'cpanm install App::perlbrew'
-su - $usuario -c 'cpanm XML::LibXML'
+
+wget https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/perl.sh
+chmod 777 perl.sh
+#curl -L http://cpanmin.us | perl - --self-upgrade
+#su - $usuario -c 'cpanm install App::perlbrew'
+#su - $usuario -c 'cpanm XML::LibXML'
 #cpanm --sudo install App::perlbrew
 #cpanm --sudo XML::LibXML
 
-setsebool -P use_nfs_home_dirs 1
+#setsebool -P use_nfs_home_dirs 1
