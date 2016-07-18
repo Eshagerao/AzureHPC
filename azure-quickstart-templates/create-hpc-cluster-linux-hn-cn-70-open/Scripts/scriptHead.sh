@@ -76,6 +76,7 @@ chmod 644 /home/$usuario/.ssh/config
 chmod 600 /home/$usuario/.ssh/authorized_keys
 
 # Install packages
+cd /home/$usuario
 yum install cmake svn git tcsh libxml2-devel epel-release gcc gcc-c++ gcc-gfortran mvapich2-devel netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-devel -y
 yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-devel -y
 yum install -y perl perl-CPAN perl-CPAN-Meta
