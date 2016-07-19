@@ -86,7 +86,7 @@ yum install patch -y
 #chmod 777 perl.sh
 #su - $usuario -c './perl.sh'
 
-login user01
+su user01
 curl -L http://cpanmin.us | sudo perl - --self-upgrade
 
 #curl -L http://cpanmin.us | sudo perl - --self-upgrade
