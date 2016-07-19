@@ -50,8 +50,8 @@ su - $usuario -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
 #su - $usuario -c 'cpanm install App::perlbrew'
 #su - $usuario -c 'cpanm XML::LibXML'
 
-su -c "cpanm install App::perlbrew" $usuario
-su -c "cpanm XML::LibXML" $usuario
+#su -c "cpanm install App::perlbrew" $usuario
+#su -c "cpanm XML::LibXML" $usuario
 
 #cpanm --sudo install App::perlbrew
 #cpanm --sudo XML::LibXML
