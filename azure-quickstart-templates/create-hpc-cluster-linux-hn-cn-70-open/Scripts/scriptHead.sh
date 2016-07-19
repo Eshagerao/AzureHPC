@@ -82,14 +82,16 @@ yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y 
 
-#wget https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/perlhead.sh
-#chmod 777 perl.sh
-#su - $usuario -c './perl.sh'
+wget https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/perlhead.sh
+chown -R $usuario:$usuario /home/$usuario/perlhead.sh
+chmod 777 perlhead.sh
+
+#su - $usuario -c './perlhead.sh'
 
 su --login user01
 whoami >> /home/logg
 pwd >> /home/logg
-su user01 --session-command=curl -L http://cpanmin.us | perl - --self-upgrade
+su user01 --session-command='curl -L http://cpanmin.us | perl - --self-upgrade'
 
 #curl -L http://cpanmin.us | sudo perl - --self-upgrade
 
