@@ -89,7 +89,9 @@ yum install patch -y
 su --login user01
 whoami >> /home/logg
 pwd >> /home/logg
-curl -L http://cpanmin.us | sudo perl - --self-upgrade
+su user01 --session-command=curl -L http://cpanmin.us | perl - --self-upgrade
+
+#curl -L http://cpanmin.us | sudo perl - --self-upgrade
 
 #curl -L http://cpanmin.us | sudo perl - --self-upgrade
 #su - $usuario -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
