@@ -18,6 +18,7 @@ systemctl disable firewalld
 systemctl stop firewalld
 
 yum clean all
+yum-config-manager --save --setopt=openlogic.skip_if_unavailable=true
 yum install deltarpm -y
 yum update NetworkManager.x86_64 -y
 yum update lvm2-7:2.02.105-14.el7.x86_64 -y
@@ -42,18 +43,4 @@ yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y
 
-#wget https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/perlcompute.sh
-#chmod 777 perl.sh
-
-#curl -L http://cpanmin.us | sudo perl - --self-upgrade
-su - $usuario -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
-#su - $usuario -c 'cpanm install App::perlbrew'
-#su - $usuario -c 'cpanm XML::LibXML'
-
-#su -c "cpanm install App::perlbrew" $usuario
-#su -c "cpanm XML::LibXML" $usuario
-
-#cpanm --sudo install App::perlbrew
-#cpanm --sudo XML::LibXML
-
-#setsebool -P use_nfs_home_dirs 1
+setsebool -P use_nfs_home_dirs 1

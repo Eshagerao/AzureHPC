@@ -50,6 +50,7 @@ done
 # Install NFS server packages
 echo "##Install NFS server packages" >> /home/logg
 yum clean all
+yum-config-manager --save --setopt=openlogic.skip_if_unavailable=true
 yum install deltarpm -y
 
 # We need to update some packages to solve some problems
