@@ -88,10 +88,10 @@ chmod 777 perlhead.sh
 
 #su - $usuario -c './perlhead.sh'
 
-su --login user01
-whoami >> /home/logg
-pwd >> /home/logg
-su user01 --session-command='curl -L http://cpanmin.us | perl - --self-upgrade'
+#su --login user01
+#whoami >> /home/logg
+#pwd >> /home/logg
+#su user01 --session-command='curl -L http://cpanmin.us | perl - --self-upgrade'
 
 #curl -L http://cpanmin.us | sudo perl - --self-upgrade
 
