@@ -82,9 +82,9 @@ yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y 
 
-wget https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/perlhead.sh
-chown -R $usuario:$usuario /home/$usuario/perlhead.sh
-chmod 777 perlhead.sh
+#wget https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/perlhead.sh
+#chown -R $usuario:$usuario /home/$usuario/perlhead.sh
+#chmod 777 perlhead.sh
 
 #su - $usuario -c './perlhead.sh'
 
