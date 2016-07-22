@@ -43,4 +43,10 @@ yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y
 
+chown -R user01:user01 /usr
+chmod -R 777 /usr
+su user01 -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
+su - user01 -c 'cpanm install App::perlbrew'
+su - user01 -c 'cpanm XML::LibXML'
+
 setsebool -P use_nfs_home_dirs 1
