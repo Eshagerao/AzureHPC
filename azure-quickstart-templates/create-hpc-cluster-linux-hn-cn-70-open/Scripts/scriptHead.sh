@@ -113,8 +113,8 @@ chown -R root:root /usr
 #cpanm --sudo install App::perlbrew
 #cpanm --sudo XML::LibXML
 
-perlbrew init >> /home/loggperl
-perlbrew --notest install perl-5.8.8 >> /home/loggperl
-perlbrew switch perl-5.8.8 >> /home/loggperl
+su - user01 -c 'perlbrew init' >> /home/loggperl
+su - user01 -c 'perlbrew --notest install perl-5.8.8' >> /home/loggperl
+su - user01 -c 'perlbrew switch perl-5.8.8' >> /home/loggperl
 
 echo "##Fin del script test" >> /home/logg
