@@ -93,11 +93,11 @@ yum install patch -y
 #whoami >> /home/logg
 #pwd >> /home/logg
 
-chown -R user01:user01 /usr
-chmod -R 777 /usr
-su - user01 -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
-su - user01 -c 'cpanm install App::perlbrew'
-su - user01 -c 'cpanm XML::LibXML'
+#chown -R user01:user01 /usr
+#chmod -R 777 /usr
+#su - user01 -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
+#su - user01 -c 'cpanm install App::perlbrew'
+#su - user01 -c 'cpanm XML::LibXML'
 
 #curl -L http://cpanmin.us | sudo perl - --self-upgrade
 
@@ -113,8 +113,8 @@ su - user01 -c 'cpanm XML::LibXML'
 #cpanm --sudo install App::perlbrew
 #cpanm --sudo XML::LibXML
 
-perlbrew init
-perlbrew --notest install perl-5.8.8
-perlbrew switch perl-5.8.8
+#perlbrew init
+#perlbrew --notest install perl-5.8.8
+#perlbrew switch perl-5.8.8
 
 echo "##Fin del script test" >> /home/logg
