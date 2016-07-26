@@ -71,7 +71,7 @@ systemctl start nfs-idmap
 echo "
 module load mpi/mpich-x86_64
 export HYDRA_HOST_FILE=/home/user01/hosts
-export PATH=/home/user01/perl5/perlbrew/perls/perl-5.8.8/bin:$PATH " >> /home/$usuario/.bash_profile
+export PATH=/home/user01/perl5/perlbrew/perls/perl-5.8.8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$PATH" >> /home/$usuario/.bash_profile
 
 chmod 644 /home/$usuario/.ssh/config
 chmod 600 /home/$usuario/.ssh/authorized_keys
