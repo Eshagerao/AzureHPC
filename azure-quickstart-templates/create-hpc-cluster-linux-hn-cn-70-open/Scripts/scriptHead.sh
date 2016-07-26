@@ -28,7 +28,7 @@ chown -R $usuario:$usuario /home/$usuario/.ssh
 
 # Add host to export NFS. IP and name to hosts file
 cd /home
-echo "localhost" >> /home/$usuario/hosts
+echo "10.0.0.4" >> /home/$usuario/hosts
 for ((i=0;i<var1;i+=1));
 do
 var2=$((var2 + 1))
@@ -69,9 +69,9 @@ systemctl start nfs-lock
 systemctl start nfs-idmap
 
 echo "
-module load mpi
-export HYDRA_HOST_FILE=$HOME/hosts
-export PATH=$HOME/perl5/perlbrew/perls/perl-5.8.8/bin:$PATH " >> /home/$usuario/.bash_profile
+module load mpi/mpich-x86_64
+export HYDRA_HOST_FILE=/home/user01/hosts
+export PATH=/home/user01/perl5/perlbrew/perls/perl-5.8.8/bin:$PATH " >> /home/$usuario/.bash_profile
 
 chmod 644 /home/$usuario/.ssh/config
 chmod 600 /home/$usuario/.ssh/authorized_keys
@@ -83,35 +83,12 @@ yum install epel-release netcdf-devel netcdf-fortran-devel netcdf-fortran-mpich-
 yum install -y perl perl-CPAN perl-CPAN-Meta
 yum install patch -y 
 
-#wget https://raw.githubusercontent.com/JuanJoseGarciaUCLM/AzureHPC/master/Scripts/perlhead.sh
-#chown -R $usuario:$usuario /home/$usuario/perlhead.sh
-#chmod 777 perlhead.sh
-#su - $usuario -c './perlhead.sh'
-
-#su --login user01
-#whoami >> /home/logg
-#pwd >> /home/logg
-
 chown -R user01:user01 /usr
 chmod -R 777 /usr
 su - user01 -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
 su - user01 -c 'cpanm install App::perlbrew' >> /home/loggapp
 su - user01 -c 'cpanm XML::LibXML' >> /home/loggxml
 chown -R root:root /usr
-
-#curl -L http://cpanmin.us | sudo perl - --self-upgrade
-
-#curl -L http://cpanmin.us | sudo perl - --self-upgrade
-#su - $usuario -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
-
-#su - $usuario -c 'cpanm install App::perlbrew'
-#su - $usuario -c 'cpanm XML::LibXML'
-
-#su -c "cpanm install App::perlbrew" $usuario
-#su -c "cpanm XML::LibXML" $usuario
-
-#cpanm --sudo install App::perlbrew
-#cpanm --sudo XML::LibXML
 
 su - user01 -c 'perlbrew init' >> /home/loggperl
 su - user01 -c 'perlbrew --notest install perl-5.8.8' >> /home/loggperl

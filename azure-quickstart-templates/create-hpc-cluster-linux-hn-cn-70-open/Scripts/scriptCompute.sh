@@ -49,5 +49,6 @@ su - user01 -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
 su - user01 -c 'cpanm install App::perlbrew'
 su - user01 -c 'cpanm XML::LibXML'
 chown -R root:root /usr
+chmod 4755 /usr
 
 setsebool -P use_nfs_home_dirs 1
