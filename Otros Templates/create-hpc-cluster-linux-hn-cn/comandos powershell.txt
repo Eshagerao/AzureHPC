@@ -2,5 +2,10 @@ cd "C:/Users/Juanjo/Dropbox/SolidQ/1_TFM/Template/github/azure-quickstart-templa
 Login-AzureRmAccount
 Select-AzureRMSubscription -SubscriptionName IB-SQIB-AZINTRL
 Select-AzureRMSubscription -SubscriptionName 0c09ad5b-0e64-44f8-b7f3-7b9e9925d720
+Select-AzureRMSubscription -SubscriptionName 0c09ad5b-0e64-44f8-b7f3-7b9e9925d720
 
 .\script_powershell.ps1 -rg rg-001 -name hpcc -cnn 3
+
+
+https://account.windowsazure.com/Subscriptions/Statement?subscriptionId=afe03128-845f-47f0-b1bc-f868e5d76bf2
+https://portal.azure.com/#resource/subscriptions/0c09ad5b-0e64-44f8-b7f3-7b9e9925d720/providers/microsoft.support/supporttickets/116091214656074

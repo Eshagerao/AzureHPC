@@ -89,6 +89,7 @@ su - user01 -c 'curl -L http://cpanmin.us | perl - --self-upgrade'
 su - user01 -c 'cpanm install App::perlbrew' >> /home/loggapp
 su - user01 -c 'cpanm XML::LibXML' >> /home/loggxml
 chown -R root:root /usr
+chmod u+s /usr/bin/sudo
 
 su - user01 -c 'perlbrew init' >> /home/loggperl
 su - user01 -c 'perlbrew --notest install perl-5.8.8' >> /home/loggperl
