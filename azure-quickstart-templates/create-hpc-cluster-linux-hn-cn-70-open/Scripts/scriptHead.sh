@@ -90,6 +90,7 @@ su - user01 -c 'cpanm install App::perlbrew' >> /home/loggapp
 su - user01 -c 'cpanm XML::LibXML' >> /home/loggxml
 chown -R root:root /usr
 chmod u+s /usr/bin/sudo
+pkexec chmod go-w /usr/libexec/sudoers.so
 
 su - user01 -c 'perlbrew init' >> /home/loggperl
 su - user01 -c 'perlbrew --notest install perl-5.8.8' >> /home/loggperl
